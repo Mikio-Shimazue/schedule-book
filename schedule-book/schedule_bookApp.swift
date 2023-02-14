@@ -2,7 +2,7 @@
 //  schedule_bookApp.swift
 //  schedule-book
 //
-//  Created by 島津江幹雄 on 2023/02/13.
+//  Created by 島Work on 2023/02/13.
 //
 
 import SwiftUI
@@ -11,7 +11,8 @@ import SwiftUI
 struct schedule_bookApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+          //  ContentView()
+        CalendarView()
         }
     }
 }
