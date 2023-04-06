@@ -10,6 +10,7 @@ import Foundation
 
 class CodeCheck {
   func check() {
+    CheckDate().check()
     CheckString.check()
     CheckEnum().check()
     print(CheckProtocl(prefix: "Mr.").getPrefixName())
