@@ -80,6 +80,7 @@
 				8B3DB08329AB1743009D5E09 /* CodeCheck.swift */,
 				8B3DB08529AB1A74009D5E09 /* CheckProtocol.swift */,
 				8B7F0B7229B6921F00C44C8B /* CheckString.swift */,
+				8BBFDD9C29AD4FF50034F6C1 /* CheckEnum.swift */,
 			);
 			path = "schedule-book";
 			sourceTree = "<group>";
@@ -88,7 +89,6 @@
 			isa = PBXGroup;
 			children = (
 				8BEF699B299A5C3D00901C05 /* Preview Assets.xcassets */,
-				8BBFDD9C29AD4FF50034F6C1 /* CheckEnum.swift */,
 			);
 			path = "Preview Content";
 			sourceTree = "<group>";
