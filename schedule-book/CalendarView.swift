@@ -15,47 +15,53 @@ struct DateInfo: Identifiable {
 struct CalendarView: View {
   let year = Calendar.current.year(for: Date()) ?? 2023
   let month = Calendar.current.month(for: Date()
-) ?? 1
-  let calendarDates = createCalendarDates( Date()
- )
+  ) ?? 1
+  let calendarDates = createCalendarDates(Date()
+  )
   let weekdays = Calendar.current.shortWeekdaySymbols
   let columns: [GridItem] = Array(repeating: .init(.fixed(40)), count: 7)
-  
-    var body: some View {
-      VStack {
-        //  yyyy/MM
-        Text(String(format: "%4d年%2d月", year, month))
-          .font(.system(size: 20))
+
+  var body: some View {
+    VStack {
+      //  yyyy/MM
+      Text(String(format: "%4d年%2d月", year, month))
+        .font(.system(size: 20))
         
-        //  曜日
-        HStack {
-          ForEach(weekdays, id: \.self) { weekday in
-            Text(weekday).frame(width: 40, height: 40, alignment: .center)
-          }
+      //  曜日
+      HStack {
+        ForEach(weekdays, id: \.self) { weekday in
+          Text(weekday).frame(width: 40, height: 40, alignment: .center)
         }
+      }
         
-        LazyVGrid(columns: columns, spacing: 20){
-          ForEach(calendarDates) {calendarDates in
-            if let date = calendarDates.date, let day = Calendar.current.day(for: date ){
-              Text("\(day)")
-                .frame(width: 40, height: 100, alignment: .top)
-            } else {
-              Text("")
-            }
+      LazyVGrid(columns: columns, spacing: 20) {
+        ForEach(calendarDates) { calendarDates in
+          if let date = calendarDates.date, let day = Calendar.current.day(for: date) {
+            Text("\(day)")
+              .frame(width: 40, height: 100, alignment: .top)
+          }
+          else {
+            Text("")
           }
         }
       }
-//      .frame(width: 400, height: 400, alignment: .top)
     }
+//      .frame(width: 400, height: 400, alignment: .top)
+  }
 }
 
 struct CalendarView_Previews: PreviewProvider {
-    static var previews: some View {
-        CalendarView()
-    }
+  static var previews: some View {
+    CalendarView()
+  }
 }
 
-func createCalendarDates(_ date: Date) ->[DateInfo] {
+
+func createCalendarDates(_ date: Date) -> [DateInfo] {
+
+  let codeCheck = CodeCheck()
+  codeCheck.check()
+  
   var days = [DateInfo]()
   
   let startOfMonth = Calendar.current.startDayOfMonth(for: date)
@@ -83,7 +89,7 @@ func createCalendarDates(_ date: Date) ->[DateInfo] {
   let firstWeekEmptyDays = firstDateWeekday - 1
   let lastWeekEmptyDays = 7 - lastDateWeekday
   
-  for _ in 0..<firstWeekEmptyDays{
+  for _ in 0..<firstWeekEmptyDays {
     days.insert(DateInfo(date: nil), at: 0)
   }
   
@@ -93,3 +99,4 @@ func createCalendarDates(_ date: Date) ->[DateInfo] {
   
   return days
 }
+
