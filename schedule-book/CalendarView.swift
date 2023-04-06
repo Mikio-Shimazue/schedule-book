@@ -20,7 +20,7 @@ struct CalendarView: View {
  )
   let weekdays = Calendar.current.shortWeekdaySymbols
   let columns: [GridItem] = Array(repeating: .init(.fixed(40)), count: 7)
-  
+  @State var counter: Int = 0
     var body: some View {
       VStack {
         //  yyyy/MM
@@ -39,14 +39,23 @@ struct CalendarView: View {
             if let date = calendarDates.date, let day = Calendar.current.day(for: date ){
               Text("\(day)")
                 .frame(width: 40, height: 100, alignment: .top)
+                .onAppear(){
+                  self.debugPrint(day: String(day))
+                }
             } else {
-              Text("")
+              Text("").onAppear(){
+                self.debugPrint(day: "A")
+              }
             }
           }
         }
       }
 //      .frame(width: 400, height: 400, alignment: .top)
     }
+  func debugPrint(day: String){
+    counter = counter + 1
+    print("\(counter): \(day)")
+  }
 }
 
 struct CalendarView_Previews: PreviewProvider {
