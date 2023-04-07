@@ -20,6 +20,8 @@ struct CalendarView: View {
   )
   let weekdays = Calendar.current.shortWeekdaySymbols
   let columns: [GridItem] = Array(repeating: .init(.fixed(40)), count: 7)
+  @State private var selectedColor = Color.gray
+  @State private var backgroundColor = Color.white
   @State var counter: Int = 0
   var body: some View {
     VStack {
@@ -34,18 +36,12 @@ struct CalendarView: View {
         }
       }
         
-      LazyVGrid(columns: columns, spacing: 20) {
+      LazyVGrid(columns: columns, spacing: 5) {
         ForEach(calendarDates) { calendarDates in
           if let date = calendarDates.date, let day = Calendar.current.day(for: date) {
-            Text("\(day)")
-              .frame(width: 40, height: 100, alignment: .top)
-              .onAppear {
-                self.debugPrint(day: String(day))
-              }
+            CatalogItem(symbol:String(day),color: selectedColor,backgroundColor: backgroundColor).frame(width: 40,height: 80)
           } else {
-            Text("").onAppear {
-              self.debugPrint(day: "A")
-            }
+            CatalogItem(color: selectedColor,backgroundColor: backgroundColor).frame(width: 40,height: 80)
           }
         }
       }
