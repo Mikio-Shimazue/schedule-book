@@ -62,16 +62,16 @@ class CheckDate {
 
   //  現在の日時に加算
   func check6() {
-    var date = Date()
-
-    let newDate = date.addingTimeInterval(10)
-    print("now: \(date), addDate:\(newDate)")
+    if let date = createDate(timeZone: TimeZone.gmt, year: 2023,month: 4, day: 7, hour: 20, minute: 17,second: 38) {
+      let newDate = date.addingTimeInterval(10)
+      print("date: \(date), addDate:\(newDate)")
+    }
     // now: 2023-04-07 20:17:38 +0000, addDate:2023-04-07 20:17:48 +0000
   }
 
   //  任意の日時に加算
   func check7() {
-    if let date = getDate(year: 2023,month: 5,day: 1,hour: 9,minute: 0,second: 0) {
+    if let date = createDate(year: 2023,month: 5,day: 1,hour: 9,minute: 0,second: 0) {
       let newDate = date.addingTimeInterval(-60)
 
       print("now: \(date), addDate:\(newDate)")
@@ -79,13 +79,25 @@ class CheckDate {
     }
   }
   func check8() {
-    if let date = getDate(year: 2023,month: 5,day: 1,hour: 23,minute: 0,second: 0) {
+    if let date = createDate(year: 2023,month: 5,day: 1,hour: 23,minute: 0,second: 0) {
       print(date) // 2023-05-10 14:00:00 +0000
     }
   }
   /// 指定日時よりDate作成
-  func getDate(year: Int? = nil, month: Int? = nil, day: Int? = nil, hour: Int? = nil, minute: Int? = nil, second: Int? = nil ) -> Date? {
+  /// - Parameters:
+  ///   - timeZone: 作成する日時のTimeZone
+  ///   - year: 以下作成日時
+  ///   - month:
+  ///   - day:
+  ///   - hour:
+  ///   - minute:
+  ///   - second:
+  /// - Returns: Date?
+  func createDate(timeZone: TimeZone! = nil, year: Int? = nil, month: Int? = nil, day: Int? = nil, hour: Int? = nil, minute: Int? = nil, second: Int? = nil ) -> Date? {
     var calendar = Calendar(identifier: .gregorian)
+    if timeZone != nil {
+      calendar.timeZone = timeZone
+    }
     if let date = calendar.date(from: DateComponents(year: year, month: month, day: day, hour: hour, minute: minute, second: second)) {
       return date
     }
@@ -131,27 +143,47 @@ class CheckDate {
   func check11() {
     let calendar = Calendar(identifier: .gregorian)
     let date = Date()
-    
-    let compornentHour = calendar.dateComponents([.year, .month, .day, .hour], from: date)
-    let compornentMinute = calendar.dateComponents([.year, .month, .day, .hour, .minute], from: date)
-    if let hourDate = calendar.date(from: compornentHour),
-       let minuteData = calendar.date(from: compornentMinute) {
-      print("date:\(date), hourDate:\(hourDate), minuteData:\(minuteData)") // date:2023-04-08 21:32:34 +0000, hourDate:2023-04-08 21:00:00 +0000, minuteData:2023-04-08 21:32:00 +0000
+  
+    // 分・秒切り捨て
+    let componentsHour = calendar.dateComponents([.year, .month, .day, .hour], from: date)
+    // 秒切り捨て
+    let componentsMinute = calendar.dateComponents([.year, .month, .day, .hour, .minute], from: date)
+    if let hourDate = calendar.date(from: componentsHour),
+       let minuteData = calendar.date(from: componentsMinute) {
+      print("date:\(date)")  // date:2023-04-08 21:32:34 +0000
+      print("hourDate:\(hourDate)")  // hourDate:2023-04-08 21:00:00 +0000
+      print("minuteData:\(minuteData)")  // minuteData:2023-04-08 21:32:00 +0000
     }
   }
   
   //  現在の日時に加算2
   func check12() {
+    // 現在の日時
     let now = Date()
-    let addDate = Date(timeIntervalSinceNow: 10)
+    // 加算する時間（秒）
+    let addSec: Double = (60 * 60 * 25) + 60 + 1 //   1日1時間1分1秒　加算
+    // 現在の日時に加算
+    let addDateNow = Date(timeIntervalSinceNow: addSec)
+    // 1970年1月1日 0時0分0秒 に加算
+    let addDate1970 = Date(timeIntervalSince1970: addSec)
+    // 2001年1月1日　0時0分0秒
+    let addDateReferenceDate = Date(timeIntervalSinceReferenceDate: addSec)
 
-     print("now: \(now), addDate:\(addDate)")
-    // now: 2023-04-08 21:56:52 +0000, addDate:2023-04-08 21:57:02 +0000
+    /*
+    print("now: \(now)") // now: 2023-04-10 21:04:51 +0000
+    print("addDateNow:\(addDateNow)") // addDateNow:2023-04-11 22:05:52 +0000
+    print("addDate1970:\(addDate1970)") // addDate1970:1970-01-02 01:01:01 +0000
+    print("addDateReferenceDate:\(addDateReferenceDate)") // addDateReferenceDate:2001-01-02 01:01:01 +0000
+     */
+    print(now) // 2023-04-10 21:12:07 +0000
+    print(addDateNow) // 2023-04-11 22:13:08 +0000
+    print(addDate1970) // 1970-01-02 01:01:01 +0000
+    print(addDateReferenceDate) // 2001-01-02 01:01:01 +0000
   }
 
   func check13() {
     let now = Date()
-    let limit = getDate(year: 2023,month: 4, day: 10, hour: 7)
+    let limit = createDate(year: 2023,month: 4, day: 10, hour: 7)
     
     let isLimit = now < limit!
     
@@ -164,7 +196,7 @@ class CheckDate {
   }
   
   func check() {
-    check13()
+    check6()
   }
   //   df.calendar = Calendar(identifier: .japanese)
 }
