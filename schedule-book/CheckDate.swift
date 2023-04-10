@@ -29,7 +29,9 @@ class CheckDate {
     let localeCurrent = Locale.current // 2023年4月8日
     let localeJp = Locale(identifier: "ja_JP") // 2023年4月8日
     let localeUs = Locale(identifier: "en_US") // 4月 8, 2023 <- USなのに月？
-    df.dateFormat = DateFormatter.dateFormat(fromTemplate: patternA, options: 0, locale: localeUs)
+    let localeCha = Locale(identifier: "zh") // 4月 8, 2023 <- USなのに月？
+    let localeKo = Locale(identifier: "ko") // 4月 8, 2023 <- USなのに月？
+  df.dateFormat = DateFormatter.dateFormat(fromTemplate: patternA, options: 0, locale: localeKo)
     print(df.string(from: Date())) // 2023年4月7日
   }
 
@@ -45,10 +47,13 @@ class CheckDate {
   func check5() {
     let date = Date()
     let dateFormatter = DateFormatter()
-    dateFormatter.calendar = Calendar(identifier: .japanese)
+    dateFormatter.calendar = Calendar(identifier: .gregorian)
 //    dateFormatter.locale = Locale.current // 2023年4月7日 金曜日 午前6:46:05
 //    dateFormatter.locale = Locale(identifier: "en_US") // Friday, April 7, 2023 at 6:44:19 AM
-    dateFormatter.locale = Locale(identifier: "ja_JP")
+//    dateFormatter.locale = Locale(identifier: "ja_JP") // 2023年4月9日 日曜日 5時49分37秒 日本標準時
+//    dateFormatter.locale = Locale(identifier: "ko") // 2023년 4월 9일 일요일 오전 5시 50분 21초 일본 표준시
+    dateFormatter.locale = Locale(identifier: "zh") // 2023年4月9日 星期日 日本标准时间 05:51:08
+//    dateFormatter.locale = Locale(identifier: "ar") // サウジアラビア：الأحد، ٩ أبريل، ٢٠٢٣، ٥:٤٣:٠٧ ص توقيت اليابان الرسمي
     dateFormatter.dateStyle = .full
     dateFormatter.timeStyle = .full
     let formattedDate = dateFormatter.string(from: date)
@@ -105,8 +110,61 @@ class CheckDate {
     }
   }
 
+  func check10() {
+    //  使用可能なIdentifiers一覧取得
+    let identifiers = Locale.availableIdentifiers
+    print(identifiers)
+  }
+  
+  //  相対的な日付表現
+  func doesRelativeDate() {
+    let formatter = DateFormatter()
+    formatter.locale = Locale(identifier: "ja_JP")
+    formatter.dateStyle = .full
+    formatter.timeStyle = .none
+    formatter.doesRelativeDateFormatting = true
+    
+    let date = Date()
+    print(formatter.string(from: date))  // 今日
+  }
+  
+  func check11() {
+    let calendar = Calendar(identifier: .gregorian)
+    let date = Date()
+    
+    let compornentHour = calendar.dateComponents([.year, .month, .day, .hour], from: date)
+    let compornentMinute = calendar.dateComponents([.year, .month, .day, .hour, .minute], from: date)
+    if let hourDate = calendar.date(from: compornentHour),
+       let minuteData = calendar.date(from: compornentMinute) {
+      print("date:\(date), hourDate:\(hourDate), minuteData:\(minuteData)") // date:2023-04-08 21:32:34 +0000, hourDate:2023-04-08 21:00:00 +0000, minuteData:2023-04-08 21:32:00 +0000
+    }
+  }
+  
+  //  現在の日時に加算2
+  func check12() {
+    let now = Date()
+    let addDate = Date(timeIntervalSinceNow: 10)
+
+     print("now: \(now), addDate:\(addDate)")
+    // now: 2023-04-08 21:56:52 +0000, addDate:2023-04-08 21:57:02 +0000
+  }
+
+  func check13() {
+    let now = Date()
+    let limit = getDate(year: 2023,month: 4, day: 10, hour: 7)
+    
+    let isLimit = now < limit!
+    
+    print(" now:\(now)\n limit: \(limit!)\n isLimit: \(isLimit)")
+    /*
+     now:2023-04-08 22:09:55 +0000
+     limit: 2023-04-09 22:00:00 +0000
+     isLimit: true
+     */
+  }
+  
   func check() {
-    check3()
+    check13()
   }
   //   df.calendar = Calendar(identifier: .japanese)
 }
