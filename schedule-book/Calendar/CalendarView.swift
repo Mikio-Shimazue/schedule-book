@@ -23,29 +23,41 @@ struct CalendarView: View {
   @State private var selectedColor = Color.gray
   @State private var backgroundColor = Color.white
   @State var counter: Int = 0
+  @State private var showDayDetailsView = false
+  @ObservedObject var selectDay = ViewDateData()
+
   var body: some View {
-    VStack {
-      //  yyyy/MM
-      Text(String(format: "%4d年%2d月", year, month))
-        .font(.system(size: 20))
+      VStack {
+        //  yyyy/MM
+        Text(String(format: "%4d年%2d月", year, month))
+          .font(.system(size: 20))
         
-      //  曜日
-      HStack {
-        ForEach(weekdays, id: \.self) { weekday in
-          Text(weekday).frame(width: 40, height: 40, alignment: .center)
-        }
-      }
-        
-      LazyVGrid(columns: columns, spacing: 5) {
-        ForEach(calendarDates) { calendarDates in
-          if let date = calendarDates.date, let day = Calendar.current.day(for: date) {
-            CatalogItem(symbol:String(day),color: selectedColor,backgroundColor: backgroundColor).frame(width: 40,height: 80)
-          } else {
-            CatalogItem(color: selectedColor,backgroundColor: backgroundColor).frame(width: 40,height: 80)
+        //  曜日
+        HStack {
+          ForEach(weekdays, id: \.self) { weekday in
+            Text(weekday).frame(width: 40, height: 40, alignment: .center)
           }
         }
+        
+        LazyVGrid(columns: columns, spacing: 5) {
+          ForEach(calendarDates) { calendarDates in
+            if let date = calendarDates.date, let day = Calendar.current.day(for: date) {
+              CatalogItem(symbol:String(day),color: selectedColor,backgroundColor: backgroundColor)
+                .frame(width: 40,height: 80)
+                .onTapGesture {
+                  print(date)
+                  selectDay.date = date
+                  showDayDetailsView = true
+                }
+            } else {
+              CatalogItem(color: selectedColor,backgroundColor: backgroundColor).frame(width: 40,height: 80)
+            }
+          }
+        }
+        .sheet(isPresented: $showDayDetailsView) {
+          DayDetailsView(showDayDetailsView: $showDayDetailsView,dateData: selectDay)
+        }
       }
-    }
 //      .frame(width: 400, height: 400, alignment: .top)
   }
 

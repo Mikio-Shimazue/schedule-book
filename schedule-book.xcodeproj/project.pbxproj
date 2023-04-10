@@ -10,6 +10,7 @@
 		8B4FD24C299B8E2D00ABBB41 /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B4FD24B299B8E2D00ABBB41 /* CalendarView.swift */; };
 		8B4FD24F299B8F8C00ABBB41 /* ExtentionCalendar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B4FD24E299B8F8C00ABBB41 /* ExtentionCalendar.swift */; };
 		8B8AEE2E29E0189F002AAD0D /* CatalogItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B8AEE2D29E0189F002AAD0D /* CatalogItem.swift */; };
+		8BD34F4C29E419EE00C80B93 /* DayDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BD34F4B29E419EE00C80B93 /* DayDetailsView.swift */; };
 		8BEF6995299A5C3C00901C05 /* schedule_bookApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BEF6994299A5C3C00901C05 /* schedule_bookApp.swift */; };
 		8BEF6997299A5C3C00901C05 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BEF6996299A5C3C00901C05 /* ContentView.swift */; };
 		8BEF6999299A5C3D00901C05 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8BEF6998299A5C3D00901C05 /* Assets.xcassets */; };
@@ -20,6 +21,7 @@
 		8B4FD24B299B8E2D00ABBB41 /* CalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarView.swift; sourceTree = "<group>"; };
 		8B4FD24E299B8F8C00ABBB41 /* ExtentionCalendar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtentionCalendar.swift; sourceTree = "<group>"; };
 		8B8AEE2D29E0189F002AAD0D /* CatalogItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogItem.swift; sourceTree = "<group>"; };
+		8BD34F4B29E419EE00C80B93 /* DayDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayDetailsView.swift; sourceTree = "<group>"; };
 		8BEF6991299A5C3C00901C05 /* schedule-book.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "schedule-book.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8BEF6994299A5C3C00901C05 /* schedule_bookApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = schedule_bookApp.swift; sourceTree = "<group>"; };
 		8BEF6996299A5C3C00901C05 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -46,6 +48,16 @@
 			path = extention;
 			sourceTree = "<group>";
 		};
+		8BD34F4A29E4168500C80B93 /* Calendar */ = {
+			isa = PBXGroup;
+			children = (
+				8B4FD24B299B8E2D00ABBB41 /* CalendarView.swift */,
+				8BD34F4B29E419EE00C80B93 /* DayDetailsView.swift */,
+				8B8AEE2D29E0189F002AAD0D /* CatalogItem.swift */,
+			);
+			path = Calendar;
+			sourceTree = "<group>";
+		};
 		8BEF6988299A5C3B00901C05 = {
 			isa = PBXGroup;
 			children = (
@@ -53,6 +65,7 @@
 				8BEF6992299A5C3C00901C05 /* Products */,
 			);
 			sourceTree = "<group>";
+			usesTabs = 0;
 		};
 		8BEF6992299A5C3C00901C05 /* Products */ = {
 			isa = PBXGroup;
@@ -65,13 +78,12 @@
 		8BEF6993299A5C3C00901C05 /* schedule-book */ = {
 			isa = PBXGroup;
 			children = (
+				8BD34F4A29E4168500C80B93 /* Calendar */,
 				8B4FD24D299B8F7E00ABBB41 /* extention */,
 				8BEF6994299A5C3C00901C05 /* schedule_bookApp.swift */,
 				8BEF6996299A5C3C00901C05 /* ContentView.swift */,
-				8B4FD24B299B8E2D00ABBB41 /* CalendarView.swift */,
 				8BEF6998299A5C3D00901C05 /* Assets.xcassets */,
 				8BEF699A299A5C3D00901C05 /* Preview Content */,
-				8B8AEE2D29E0189F002AAD0D /* CatalogItem.swift */,
 			);
 			path = "schedule-book";
 			sourceTree = "<group>";
@@ -157,6 +169,7 @@
 				8BEF6997299A5C3C00901C05 /* ContentView.swift in Sources */,
 				8B8AEE2E29E0189F002AAD0D /* CatalogItem.swift in Sources */,
 				8BEF6995299A5C3C00901C05 /* schedule_bookApp.swift in Sources */,
+				8BD34F4C29E419EE00C80B93 /* DayDetailsView.swift in Sources */,
 				8B4FD24F299B8F8C00ABBB41 /* ExtentionCalendar.swift in Sources */,
 				8B4FD24C299B8E2D00ABBB41 /* CalendarView.swift in Sources */,
 			);
