@@ -17,30 +17,31 @@ struct DayDetailsView: View {
   @State private var isAddSchedule = false
 
   var body: some View {
-    HStack {
-      VStack {
+    VStack {
+      HStack(alignment: ) {
         Text(dateData.date?.getDateAndWeek() ?? "non")
           .padding(.leading,30)
-          .padding(.top)
         Spacer()
-      }
-      VStack {
         Button(action: {
           self.isAddSchedule.toggle()
         }) {
           if isAddSchedule {
-            Image(systemName: "plus.circle").renderingMode(.original)
-              .frame(width: 80,height: 80)
+            Image(systemName: "plus.circle")
+              .resizable()
+              .frame(width: 30,height: 30)
               .scaledToFit()
           } else {
-            Image(systemName: "plus.circle").renderingMode(.original)
-              .frame(width: 200)
-
+            Image(systemName: "plus.circle")
+              .resizable()
+              .frame(width: 30,height: 30,alignment: .top)
+            
           }
         }
         .padding(.trailing)
-        Spacer()
       }
+      Text("list1")
+        .padding(.leading,30)
+
       Spacer()
     }
   }
