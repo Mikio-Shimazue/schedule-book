@@ -195,8 +195,22 @@ class CheckDate {
      */
   }
   
+  func check14() {
+    let formatterJa = DateIntervalFormatter()
+    formatterJa.dateTemplate = "ydMMMEEE"
+    formatterJa.locale = Locale(identifier: "ja_JP")
+    let formatterEn = DateIntervalFormatter()
+    formatterEn.dateTemplate = "ydMMMEEE"
+    formatterEn.locale = Locale(identifier: "en_US")
+
+    let now = Date()
+    let 今日 = Date()
+    let afterTomorrow = Date(timeIntervalSinceNow: 60*60*48)
+    print(formatterJa.string(from: now, to: afterTomorrow)) // 2023年4月12日(水)～14日(金)
+    print(formatterEn.string(from: now, to: afterTomorrow)) // Wed, Apr 12 – Fri, Apr 14, 2023
+  }
   func check() {
-    check6()
+    check14()
   }
   //   df.calendar = Calendar(identifier: .japanese)
 }
