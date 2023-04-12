@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8B2A2F8029E6C89400D92C52 /* ScheduleListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B2A2F7F29E6C89400D92C52 /* ScheduleListItem.swift */; };
 		8B4FD24C299B8E2D00ABBB41 /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B4FD24B299B8E2D00ABBB41 /* CalendarView.swift */; };
 		8B4FD24F299B8F8C00ABBB41 /* ExtentionCalendar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B4FD24E299B8F8C00ABBB41 /* ExtentionCalendar.swift */; };
 		8B8AEE2E29E0189F002AAD0D /* CatalogItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B8AEE2D29E0189F002AAD0D /* CatalogItem.swift */; };
@@ -18,6 +19,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8B2A2F7F29E6C89400D92C52 /* ScheduleListItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleListItem.swift; sourceTree = "<group>"; };
 		8B4FD24B299B8E2D00ABBB41 /* CalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarView.swift; sourceTree = "<group>"; };
 		8B4FD24E299B8F8C00ABBB41 /* ExtentionCalendar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtentionCalendar.swift; sourceTree = "<group>"; };
 		8B8AEE2D29E0189F002AAD0D /* CatalogItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogItem.swift; sourceTree = "<group>"; };
@@ -54,6 +56,7 @@
 				8B4FD24B299B8E2D00ABBB41 /* CalendarView.swift */,
 				8BD34F4B29E419EE00C80B93 /* DayDetailsView.swift */,
 				8B8AEE2D29E0189F002AAD0D /* CatalogItem.swift */,
+				8B2A2F7F29E6C89400D92C52 /* ScheduleListItem.swift */,
 			);
 			path = Calendar;
 			sourceTree = "<group>";
@@ -167,6 +170,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8BEF6997299A5C3C00901C05 /* ContentView.swift in Sources */,
+				8B2A2F8029E6C89400D92C52 /* ScheduleListItem.swift in Sources */,
 				8B8AEE2E29E0189F002AAD0D /* CatalogItem.swift in Sources */,
 				8BEF6995299A5C3C00901C05 /* schedule_bookApp.swift in Sources */,
 				8BD34F4C29E419EE00C80B93 /* DayDetailsView.swift in Sources */,

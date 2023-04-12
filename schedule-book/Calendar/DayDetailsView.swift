@@ -18,7 +18,7 @@ struct DayDetailsView: View {
 
   var body: some View {
     VStack {
-      HStack(alignment: ) {
+      HStack(alignment: .top) {
         Text(dateData.date?.getDateAndWeek() ?? "non")
           .padding(.leading,30)
         Spacer()
@@ -39,13 +39,15 @@ struct DayDetailsView: View {
         }
         .padding(.trailing)
       }
-      Text("list1")
-        .padding(.leading,30)
+      .padding(.bottom,20)
+      //  予定リスト
+      ScheduleListItem()
 
       Spacer()
     }
   }
 }
+
 
 struct DayDetails_Previews: PreviewProvider {
   @State private static var showDayDetailsView = false
@@ -66,4 +68,13 @@ extension Date {
     
     return formattedDate
   }
+}
+
+func RGBColor(red: Double, green: Double, blue: Double, alpha: Double = 255) -> Color {
+  print(CUnsignedChar.max)
+    return Color(
+      red: red / Double(CUnsignedChar.max),
+      green: green / Double(CUnsignedChar.max),
+      blue: blue / Double(CUnsignedChar.max),
+      opacity: alpha / Double(CUnsignedChar.max))
 }
