@@ -47,14 +47,16 @@ class CheckDate {
   func check5() {
     let date = Date()
     let dateFormatter = DateFormatter()
-    dateFormatter.calendar = Calendar(identifier: .gregorian)
+//    dateFormatter.calendar = Calendar(identifier: .gregorian)
+    dateFormatter.calendar = Calendar(identifier: .iso8601)
+//    dateFormatter.calendar = Calendar(identifier: .iso8601)
 //    dateFormatter.locale = Locale.current // 2023年4月7日 金曜日 午前6:46:05
 //    dateFormatter.locale = Locale(identifier: "en_US") // Friday, April 7, 2023 at 6:44:19 AM
-//    dateFormatter.locale = Locale(identifier: "ja_JP") // 2023年4月9日 日曜日 5時49分37秒 日本標準時
+    dateFormatter.locale = Locale(identifier: "ja_JP") // 2023年4月9日 日曜日 5時49分37秒 日本標準時
 //    dateFormatter.locale = Locale(identifier: "ko") // 2023년 4월 9일 일요일 오전 5시 50분 21초 일본 표준시
-    dateFormatter.locale = Locale(identifier: "zh") // 2023年4月9日 星期日 日本标准时间 05:51:08
+//    dateFormatter.locale = Locale(identifier: "zh") // 2023年4月9日 星期日 日本标准时间 05:51:08
 //    dateFormatter.locale = Locale(identifier: "ar") // サウジアラビア：الأحد، ٩ أبريل، ٢٠٢٣، ٥:٤٣:٠٧ ص توقيت اليابان الرسمي
-    dateFormatter.dateStyle = .full
+    dateFormatter.dateStyle = .none
     dateFormatter.timeStyle = .full
     let formattedDate = dateFormatter.string(from: date)
     print(formattedDate)
@@ -209,8 +211,31 @@ class CheckDate {
     print(formatterJa.string(from: now, to: afterTomorrow)) // 2023年4月12日(水)～14日(金)
     print(formatterEn.string(from: now, to: afterTomorrow)) // Wed, Apr 12 – Fri, Apr 14, 2023
   }
+  
+  /// check9のsetLocalizedDataFormatFromTemplate版
+  func check15(){
+    let formatter = DateFormatter()
+    formatter.locale = Locale(identifier: "ja_JP")
+//    formatter.setLocalizedDateFormatFromTemplate("MMyyyyddssmmhh")
+    formatter.setLocalizedDateFormatFromTemplate("yyyy-MM-dd HH:mm:ss")
+    let date = Date()
+    print(date)
+    let strDate = formatter.string(from: date)
+    print(strDate) // 04/13/2023, 6:56:35 AM  ja_JP:2023/04/13 午前6:55:39
+                   // 04/13/2023, 06:57:47 2023/04/13 7:00:24
+  }
+  
+  func check16() {
+    let formatter = ISO8601DateFormatter()
+    formatter.timeZone = TimeZone.current
+    
+    let date = Date()
+    let strDate = formatter.string(from: date)
+    print(strDate) // 2023-04-13T05:47:30+09:00
+  }
+
   func check() {
-    check14()
+    check15()
   }
   //   df.calendar = Calendar(identifier: .japanese)
 }
