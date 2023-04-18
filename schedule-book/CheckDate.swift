@@ -43,21 +43,36 @@ class CheckDate {
     df.dateFormat = DateFormatter.dateFormat(fromTemplate: "EEEE", options: 0, locale: localeJp)
     print(df.string(from: Date()))
   }
-
-  func check5() {
+  
+  
+  func check5_1() {
     let date = Date()
     let dateFormatter = DateFormatter()
-//    dateFormatter.calendar = Calendar(identifier: .gregorian)
-    dateFormatter.calendar = Calendar(identifier: .iso8601)
+    dateFormatter.calendar = Calendar(identifier: .gregorian)
+    dateFormatter.locale = Locale(identifier: "ja_JP")
+//    dateFormatter.locale = Locale.current シュミレーターの場合NG
+    dateFormatter.dateStyle = .full
+    dateFormatter.timeStyle = .full
+    let formattedDate = dateFormatter.string(from: date)
+
+    print(formattedDate) // 2023年4月15日 土曜日 9時01分25秒 日本標準時
+  }
+
+
+  func check5_2() {
+    let date = Date()
+    let dateFormatter = DateFormatter()
+    dateFormatter.calendar = Calendar(identifier: .gregorian)
+//    dateFormatter.calendar = Calendar(identifier: .japanese)
 //    dateFormatter.calendar = Calendar(identifier: .iso8601)
 //    dateFormatter.locale = Locale.current // 2023年4月7日 金曜日 午前6:46:05
-//    dateFormatter.locale = Locale(identifier: "en_US") // Friday, April 7, 2023 at 6:44:19 AM
-    dateFormatter.locale = Locale(identifier: "ja_JP") // 2023年4月9日 日曜日 5時49分37秒 日本標準時
+    dateFormatter.locale = Locale(identifier: "en_US") // Friday, April 7, 2023 at 6:44:19 AM
+//    dateFormatter.locale = Locale(identifier: "ja_JP") // 2023年4月9日 日曜日 5時49分37秒 日本標準時
 //    dateFormatter.locale = Locale(identifier: "ko") // 2023년 4월 9일 일요일 오전 5시 50분 21초 일본 표준시
 //    dateFormatter.locale = Locale(identifier: "zh") // 2023年4月9日 星期日 日本标准时间 05:51:08
 //    dateFormatter.locale = Locale(identifier: "ar") // サウジアラビア：الأحد، ٩ أبريل، ٢٠٢٣، ٥:٤٣:٠٧ ص توقيت اليابان الرسمي
-    dateFormatter.dateStyle = .none
-    dateFormatter.timeStyle = .full
+    dateFormatter.dateStyle = .short
+    dateFormatter.timeStyle = .none
     let formattedDate = dateFormatter.string(from: date)
     print(formattedDate)
   }
@@ -85,6 +100,23 @@ class CheckDate {
       print(date) // 2023-05-10 14:00:00 +0000
     }
   }
+  
+  func check9_() {
+    var calendar = Calendar(identifier: .gregorian)
+    calendar.timeZone = TimeZone(identifier: "Asia/Tokyo") ?? TimeZone.gmt
+     
+    if let date = calendar.date(
+      from: DateComponents(
+        year: 2023,
+        month: 4,
+        day: 15,
+        hour: 9,
+        minute: 0,
+        second: 0)) {
+      print(date)  // 2023-04-15 00:00:00 +0000
+    }
+  }
+  
   /// 指定日時よりDate作成
   /// - Parameters:
   ///   - timeZone: 作成する日時のTimeZone
@@ -216,12 +248,13 @@ class CheckDate {
   func check15(){
     let formatter = DateFormatter()
     formatter.locale = Locale(identifier: "ja_JP")
-//    formatter.setLocalizedDateFormatFromTemplate("MMyyyyddssmmhh")
-    formatter.setLocalizedDateFormatFromTemplate("yyyy-MM-dd HH:mm:ss")
+    formatter.setLocalizedDateFormatFromTemplate("yyyyMMddhhssmm")
+//    formatter.setLocalizedDateFormatFromTemplate("yyyy-MM-dd HH:mm:ss")
     let date = Date()
     print(date)
     let strDate = formatter.string(from: date)
-    print(strDate) // 04/13/2023, 6:56:35 AM  ja_JP:2023/04/13 午前6:55:39
+    print(strDate) // 2023/04/15 午後0:53:41 ja_JP
+                   // 04/13/2023, 6:56:35 AM  ja_JP:2023/04/13 午前6:55:39
                    // 04/13/2023, 06:57:47 2023/04/13 7:00:24
   }
   
@@ -234,6 +267,26 @@ class CheckDate {
     print(strDate) // 2023-04-13T05:47:30+09:00
   }
 
+  func check17() {
+    let formatter = DateFormatter()
+    formatter.locale = Locale(identifier: "ja_JP")
+//    formatter.setLocalizedDateFormatFromTemplate("MMyyyyddssmmhh")
+//    formatter.setLocalizedDateFormatFromTemplate("yyyy-MM-dd HH:mm:ss") // 2023-04-14 21:32:21 +0000
+//    formatter.dateFormat = "yyyy-MM-dd HH:mm:ss" //  2023-04-14 21:33:01 +0000
+    formatter.dateFormat = "yyyy年MM月dd日 HH時mm分ss秒" //  2023-04-14 21:33:01 +0000
+
+    let date = Date()
+    print(date)
+    let strDate = formatter.string(from: date)
+    
+    print(strDate)
+    formatter.dateFormat = "yyyy-MM-dd HH:mm:ss" //  nil
+    let strToDate = formatter.date(from: strDate)
+    
+    print(strToDate!)
+
+  }
+  
   func check() {
     check15()
   }
