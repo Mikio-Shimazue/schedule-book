@@ -17,6 +17,7 @@
 		8B734B8A29F28A4800FD9C93 /* ScheduleRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B734B8929F28A4800FD9C93 /* ScheduleRepository.swift */; };
 		8B734B8F29F29DB000FD9C93 /* CalendarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B734B8E29F29DB000FD9C93 /* CalendarViewModel.swift */; };
 		8B7F33DD29F00BC1006761CB /* ExtentionDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7F33DC29F00BC1006761CB /* ExtentionDate.swift */; };
+		8B850C6F29F3A4CD00557B3A /* DayDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B850C6E29F3A4CD00557B3A /* DayDetailViewModel.swift */; };
 		8B8AEE2E29E0189F002AAD0D /* CatalogItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B8AEE2D29E0189F002AAD0D /* CatalogItem.swift */; };
 		8BD34F4C29E419EE00C80B93 /* DayDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BD34F4B29E419EE00C80B93 /* DayDetailsView.swift */; };
 		8BEF6995299A5C3C00901C05 /* schedule_bookApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BEF6994299A5C3C00901C05 /* schedule_bookApp.swift */; };
@@ -35,6 +36,7 @@
 		8B734B8929F28A4800FD9C93 /* ScheduleRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleRepository.swift; sourceTree = "<group>"; };
 		8B734B8E29F29DB000FD9C93 /* CalendarViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarViewModel.swift; sourceTree = "<group>"; };
 		8B7F33DC29F00BC1006761CB /* ExtentionDate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtentionDate.swift; sourceTree = "<group>"; };
+		8B850C6E29F3A4CD00557B3A /* DayDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayDetailViewModel.swift; sourceTree = "<group>"; };
 		8B8AEE2D29E0189F002AAD0D /* CatalogItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogItem.swift; sourceTree = "<group>"; };
 		8BD34F4B29E419EE00C80B93 /* DayDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayDetailsView.swift; sourceTree = "<group>"; };
 		8BEF6991299A5C3C00901C05 /* schedule-book.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "schedule-book.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -94,6 +96,7 @@
 			isa = PBXGroup;
 			children = (
 				8B734B8E29F29DB000FD9C93 /* CalendarViewModel.swift */,
+				8B850C6E29F3A4CD00557B3A /* DayDetailViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -221,6 +224,7 @@
 			files = (
 				8B1B4E7229F3626700C2BDF5 /* ColorExtension.swift in Sources */,
 				8B1B4E7429F3691100C2BDF5 /* RepositoryView.swift in Sources */,
+				8B850C6F29F3A4CD00557B3A /* DayDetailViewModel.swift in Sources */,
 				8B2A2F8029E6C89400D92C52 /* ScheduleListItem.swift in Sources */,
 				8B1B4E7029F3616C00C2BDF5 /* DateExtension.swift in Sources */,
 				8B8AEE2E29E0189F002AAD0D /* CatalogItem.swift in Sources */,

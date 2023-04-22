@@ -15,13 +15,13 @@ struct DayDetailsView: View {
   @Binding var showDayDetailsView: Bool
   @ObservedObject var dateData: ViewDateData
   @State private var isAddSchedule = false
-  @StateObject var viewModel: CalendarViewModel
+  @StateObject var viewModel: DayDetailViewModel
 
   //  MARK: -
 
-  init(viewModel: CalendarViewModel = CalendarViewModel(),showDayDetailsView: Binding<Bool>,
+  init(showDayDetailsView: Binding<Bool>,
        dateData: ObservedObject<ViewDateData>) {
-    _viewModel = StateObject(wrappedValue: viewModel)
+    _viewModel = StateObject(wrappedValue: DayDetailViewModel())
     _showDayDetailsView = showDayDetailsView
     _dateData = dateData
     
