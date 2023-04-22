@@ -8,10 +8,7 @@
 import SwiftUI
 
 struct ScheduleListItem: View {
-  let startTime: String = "10:20"
-  let endTime: String = "11:30"
-  let messageText: String = "Appointment details"
-  let isAlarm: Bool = true
+  let schedule: ScheduleData
   /// 時刻部背景色
   let timeColor: Color = Color.rgb(red: 251,green: 238,blue: 223)
   /// 予定内容ぶ背景色
@@ -23,19 +20,27 @@ struct ScheduleListItem: View {
       Spacer().frame(width:5)
       //  予定時刻表示部
       VStack(){
-        Text(startTime)
+        if let startTime = schedule.getStartTimeString() {
+          Text(startTime)
+        } else {
+          Text("--:--")
+        }
         Text("|")
-        Text(endTime)
+        if let endTime = schedule.getEndTimeString() {
+          Text(endTime)
+        } else {
+          Text("--:--")
+        }
       }
-      .frame(width: 60, height: 60, alignment: .center)
+//      .frame(width: 60, height: 60, alignment: .center)
       .background(timeColor)
 //      .padding(.leading,3)
       
       Divider()
     
       HStack() {
-        Text(messageText)
-          .frame(width:250, height:20,alignment: .leading)
+        Text(schedule.information ?? "")
+//          .frame(width:250, height:20,alignment: .leading)
           .padding(.leading,10)
         
         Image(systemName: "alarm.waves.left.and.right")
@@ -53,6 +58,6 @@ struct ScheduleListItem: View {
 
 struct ScheduleListItem_Previews: PreviewProvider {
     static var previews: some View {
-        ScheduleListItem()
+      ScheduleListItem(schedule: ScheduleData(startTime: Date(), duration: Double(60), information: String("予定詳細内容")))
     }
 }

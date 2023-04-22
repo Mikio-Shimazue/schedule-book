@@ -31,6 +31,7 @@ class ScheduleRepository  {
     
     scheduleDatas?.append(scheduleData)
     
+    scheduleData = ScheduleData()
     scheduleData.startTime = date
     scheduleData.duration = 60
     scheduleData.information = "ブログ　オンラインウェビナー【ChatGPTを使いこなせ！！】"

@@ -51,14 +51,12 @@ struct DayDetailsView: View {
         .padding(.trailing)
       }
       .padding(.bottom,20)
-      List(viewModel.schedules) { date in
+      //  予定リスト
+      List(viewModel.schedules) { schedule in
         NavigationLink(destination: RepositoryView()) {
-          ScheduleListItem()
+          ScheduleListItem(schedule: schedule)
         }
       }
-      //  予定リスト
-//      ScheduleListItem()
-
       Spacer()
     }
   }
