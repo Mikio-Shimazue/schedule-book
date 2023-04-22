@@ -7,7 +7,7 @@
 
 import Foundation
 
-public extension Calendar {
+extension Calendar {
   /// Description
   /// - Parameter for: <#for description#>
   /// - Returns: <#description#>

@@ -2,7 +2,7 @@
 //  DayDetailsView.swift
 //  schedule-book
 //
-//  Created by 島津江幹雄 on 2023/04/10.
+//  Created by Mikizin on 2023/04/10.
 //
 
 import SwiftUI
@@ -15,6 +15,17 @@ struct DayDetailsView: View {
   @Binding var showDayDetailsView: Bool
   @ObservedObject var dateData: ViewDateData
   @State private var isAddSchedule = false
+  @StateObject var viewModel: CalendarViewModel
+
+  //  MARK: -
+
+  init(viewModel: CalendarViewModel = CalendarViewModel(),showDayDetailsView: Binding<Bool>,
+       dateData: ObservedObject<ViewDateData>) {
+    _viewModel = StateObject(wrappedValue: viewModel)
+    _showDayDetailsView = showDayDetailsView
+    _dateData = dateData
+    
+  }
 
   var body: some View {
     VStack {
@@ -40,8 +51,13 @@ struct DayDetailsView: View {
         .padding(.trailing)
       }
       .padding(.bottom,20)
+      List(viewModel.schedules) { date in
+        NavigationLink(destination: RepositoryView()) {
+          ScheduleListItem()
+        }
+      }
       //  予定リスト
-      ScheduleListItem()
+//      ScheduleListItem()
 
       Spacer()
     }
@@ -53,28 +69,6 @@ struct DayDetails_Previews: PreviewProvider {
   @State private static var showDayDetailsView = false
   @ObservedObject static var dateData = ViewDateData()
   static var previews: some View {
-    DayDetailsView(showDayDetailsView: $showDayDetailsView, dateData: dateData)
+    DayDetailsView(showDayDetailsView: $showDayDetailsView, dateData: _dateData)
   }
-}
-
-extension Date {
-  func getDateAndWeek() -> String {
-    let dateFormatter = DateFormatter()
-    dateFormatter.calendar = Calendar.current
-    dateFormatter.locale = Locale.current
-    dateFormatter.dateFormat = "M月d日(EEEE)" //  <- 多言語の場合ここを言語別テーブルへ変更
-    
-    let formattedDate = dateFormatter.string(from: self)
-    
-    return formattedDate
-  }
-}
-
-func RGBColor(red: Double, green: Double, blue: Double, alpha: Double = 255) -> Color {
-  print(CUnsignedChar.max)
-    return Color(
-      red: red / Double(CUnsignedChar.max),
-      green: green / Double(CUnsignedChar.max),
-      blue: blue / Double(CUnsignedChar.max),
-      opacity: alpha / Double(CUnsignedChar.max))
 }

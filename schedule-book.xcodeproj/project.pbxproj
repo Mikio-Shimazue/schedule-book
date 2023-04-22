@@ -7,26 +7,38 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8B0EBEDE29F00268001EC038 /* ScheduleData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B0EBEDD29F00268001EC038 /* ScheduleData.swift */; };
+		8B1B4E7029F3616C00C2BDF5 /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B1B4E6F29F3616C00C2BDF5 /* DateExtension.swift */; };
+		8B1B4E7229F3626700C2BDF5 /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B1B4E7129F3626700C2BDF5 /* ColorExtension.swift */; };
+		8B1B4E7429F3691100C2BDF5 /* RepositoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B1B4E7329F3691100C2BDF5 /* RepositoryView.swift */; };
 		8B2A2F8029E6C89400D92C52 /* ScheduleListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B2A2F7F29E6C89400D92C52 /* ScheduleListItem.swift */; };
 		8B4FD24C299B8E2D00ABBB41 /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B4FD24B299B8E2D00ABBB41 /* CalendarView.swift */; };
 		8B4FD24F299B8F8C00ABBB41 /* ExtentionCalendar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B4FD24E299B8F8C00ABBB41 /* ExtentionCalendar.swift */; };
+		8B734B8A29F28A4800FD9C93 /* ScheduleRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B734B8929F28A4800FD9C93 /* ScheduleRepository.swift */; };
+		8B734B8F29F29DB000FD9C93 /* CalendarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B734B8E29F29DB000FD9C93 /* CalendarViewModel.swift */; };
+		8B7F33DD29F00BC1006761CB /* ExtentionDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7F33DC29F00BC1006761CB /* ExtentionDate.swift */; };
 		8B8AEE2E29E0189F002AAD0D /* CatalogItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B8AEE2D29E0189F002AAD0D /* CatalogItem.swift */; };
 		8BD34F4C29E419EE00C80B93 /* DayDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BD34F4B29E419EE00C80B93 /* DayDetailsView.swift */; };
 		8BEF6995299A5C3C00901C05 /* schedule_bookApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BEF6994299A5C3C00901C05 /* schedule_bookApp.swift */; };
-		8BEF6997299A5C3C00901C05 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BEF6996299A5C3C00901C05 /* ContentView.swift */; };
 		8BEF6999299A5C3D00901C05 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8BEF6998299A5C3D00901C05 /* Assets.xcassets */; };
 		8BEF699C299A5C3D00901C05 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8BEF699B299A5C3D00901C05 /* Preview Assets.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8B0EBEDD29F00268001EC038 /* ScheduleData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleData.swift; sourceTree = "<group>"; };
+		8B1B4E6F29F3616C00C2BDF5 /* DateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtension.swift; sourceTree = "<group>"; };
+		8B1B4E7129F3626700C2BDF5 /* ColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtension.swift; sourceTree = "<group>"; };
+		8B1B4E7329F3691100C2BDF5 /* RepositoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryView.swift; sourceTree = "<group>"; };
 		8B2A2F7F29E6C89400D92C52 /* ScheduleListItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleListItem.swift; sourceTree = "<group>"; };
 		8B4FD24B299B8E2D00ABBB41 /* CalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarView.swift; sourceTree = "<group>"; };
 		8B4FD24E299B8F8C00ABBB41 /* ExtentionCalendar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtentionCalendar.swift; sourceTree = "<group>"; };
+		8B734B8929F28A4800FD9C93 /* ScheduleRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleRepository.swift; sourceTree = "<group>"; };
+		8B734B8E29F29DB000FD9C93 /* CalendarViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarViewModel.swift; sourceTree = "<group>"; };
+		8B7F33DC29F00BC1006761CB /* ExtentionDate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtentionDate.swift; sourceTree = "<group>"; };
 		8B8AEE2D29E0189F002AAD0D /* CatalogItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogItem.swift; sourceTree = "<group>"; };
 		8BD34F4B29E419EE00C80B93 /* DayDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayDetailsView.swift; sourceTree = "<group>"; };
 		8BEF6991299A5C3C00901C05 /* schedule-book.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "schedule-book.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8BEF6994299A5C3C00901C05 /* schedule_bookApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = schedule_bookApp.swift; sourceTree = "<group>"; };
-		8BEF6996299A5C3C00901C05 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		8BEF6998299A5C3D00901C05 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8BEF699B299A5C3D00901C05 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -42,12 +54,48 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8B0EBEDB29F001BE001EC038 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				8BD34F4A29E4168500C80B93 /* Calendar */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		8B0EBEDC29F001EA001EC038 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				8B4FD24D299B8F7E00ABBB41 /* extention */,
+				8B0EBEDD29F00268001EC038 /* ScheduleData.swift */,
+				8B734B8929F28A4800FD9C93 /* ScheduleRepository.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		8B1B4E6E29F3602300C2BDF5 /*  Fundamentals */ = {
+			isa = PBXGroup;
+			children = (
+				8B1B4E6F29F3616C00C2BDF5 /* DateExtension.swift */,
+				8B1B4E7129F3626700C2BDF5 /* ColorExtension.swift */,
+			);
+			path = " Fundamentals";
+			sourceTree = "<group>";
+		};
 		8B4FD24D299B8F7E00ABBB41 /* extention */ = {
 			isa = PBXGroup;
 			children = (
 				8B4FD24E299B8F8C00ABBB41 /* ExtentionCalendar.swift */,
+				8B7F33DC29F00BC1006761CB /* ExtentionDate.swift */,
 			);
 			path = extention;
+			sourceTree = "<group>";
+		};
+		8B734B8B29F29C3E00FD9C93 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				8B734B8E29F29DB000FD9C93 /* CalendarViewModel.swift */,
+			);
+			path = ViewModels;
 			sourceTree = "<group>";
 		};
 		8BD34F4A29E4168500C80B93 /* Calendar */ = {
@@ -57,6 +105,7 @@
 				8BD34F4B29E419EE00C80B93 /* DayDetailsView.swift */,
 				8B8AEE2D29E0189F002AAD0D /* CatalogItem.swift */,
 				8B2A2F7F29E6C89400D92C52 /* ScheduleListItem.swift */,
+				8B1B4E7329F3691100C2BDF5 /* RepositoryView.swift */,
 			);
 			path = Calendar;
 			sourceTree = "<group>";
@@ -81,10 +130,11 @@
 		8BEF6993299A5C3C00901C05 /* schedule-book */ = {
 			isa = PBXGroup;
 			children = (
-				8BD34F4A29E4168500C80B93 /* Calendar */,
-				8B4FD24D299B8F7E00ABBB41 /* extention */,
+				8B1B4E6E29F3602300C2BDF5 /*  Fundamentals */,
 				8BEF6994299A5C3C00901C05 /* schedule_bookApp.swift */,
-				8BEF6996299A5C3C00901C05 /* ContentView.swift */,
+				8B0EBEDC29F001EA001EC038 /* Models */,
+				8B0EBEDB29F001BE001EC038 /* View */,
+				8B734B8B29F29C3E00FD9C93 /* ViewModels */,
 				8BEF6998299A5C3D00901C05 /* Assets.xcassets */,
 				8BEF699A299A5C3D00901C05 /* Preview Content */,
 			);
@@ -169,10 +219,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8BEF6997299A5C3C00901C05 /* ContentView.swift in Sources */,
+				8B1B4E7229F3626700C2BDF5 /* ColorExtension.swift in Sources */,
+				8B1B4E7429F3691100C2BDF5 /* RepositoryView.swift in Sources */,
 				8B2A2F8029E6C89400D92C52 /* ScheduleListItem.swift in Sources */,
+				8B1B4E7029F3616C00C2BDF5 /* DateExtension.swift in Sources */,
 				8B8AEE2E29E0189F002AAD0D /* CatalogItem.swift in Sources */,
+				8B7F33DD29F00BC1006761CB /* ExtentionDate.swift in Sources */,
 				8BEF6995299A5C3C00901C05 /* schedule_bookApp.swift in Sources */,
+				8B734B8F29F29DB000FD9C93 /* CalendarViewModel.swift in Sources */,
+				8B0EBEDE29F00268001EC038 /* ScheduleData.swift in Sources */,
+				8B734B8A29F28A4800FD9C93 /* ScheduleRepository.swift in Sources */,
 				8BD34F4C29E419EE00C80B93 /* DayDetailsView.swift in Sources */,
 				8B4FD24F299B8F8C00ABBB41 /* ExtentionCalendar.swift in Sources */,
 				8B4FD24C299B8E2D00ABBB41 /* CalendarView.swift in Sources */,

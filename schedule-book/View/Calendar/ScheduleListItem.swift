@@ -2,7 +2,7 @@
 //  ScheduleListItem.swift
 //  schedule-book
 //
-//  Created by 島津江幹雄 on 2023/04/12.
+//  Created by Mikizin on 2023/04/12.
 //
 
 import SwiftUI
@@ -13,10 +13,10 @@ struct ScheduleListItem: View {
   let messageText: String = "Appointment details"
   let isAlarm: Bool = true
   /// 時刻部背景色
-  let timeColor: Color = RGBColor(red: 251,green: 238,blue: 223)
+  let timeColor: Color = Color.rgb(red: 251,green: 238,blue: 223)
   /// 予定内容ぶ背景色
-  let infoColor: Color = RGBColor(red: 202,green: 255,blue: 246)
-  
+  let infoColor: Color = Color.rgb(red: 202,green: 255,blue: 246)
+
   var body: some View {
     //  予定表示
     HStack() {
@@ -27,7 +27,7 @@ struct ScheduleListItem: View {
         Text("|")
         Text(endTime)
       }
-      .frame(width: 80, height: 60, alignment: .center)
+      .frame(width: 60, height: 60, alignment: .center)
       .background(timeColor)
 //      .padding(.leading,3)
       
@@ -35,11 +35,12 @@ struct ScheduleListItem: View {
     
       HStack() {
         Text(messageText)
-          .frame(width:230, height:20,alignment: .leading)
-          .padding(.leading,5)
+          .frame(width:250, height:20,alignment: .leading)
+          .padding(.leading,10)
         
         Image(systemName: "alarm.waves.left.and.right")
           .frame(height: 10,alignment: .trailing)
+          .padding(.trailing,10)
       }
       .frame(height: 60,alignment: .center)
       .background(infoColor)

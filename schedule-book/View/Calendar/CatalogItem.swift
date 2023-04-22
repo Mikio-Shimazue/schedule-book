@@ -2,7 +2,7 @@
 //  CatalogItem.swift
 //  schedule-book
 //
-//  Created by 島津江幹雄 on 2023/04/07.
+//  Created by Mikizin on 2023/04/07.
 //
 
 import SwiftUI

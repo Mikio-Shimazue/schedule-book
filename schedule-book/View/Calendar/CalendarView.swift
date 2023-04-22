@@ -25,6 +25,14 @@ struct CalendarView: View {
   @State var counter: Int = 0
   @State private var showDayDetailsView = false
   @ObservedObject var selectDay = ViewDateData()
+  @StateObject var viewModel: CalendarViewModel
+
+  
+  //  MARK: -
+
+  init(viewModel: CalendarViewModel = CalendarViewModel()) {
+    _viewModel = StateObject(wrappedValue: viewModel)
+  }
 
   var body: some View {
       VStack {
@@ -55,7 +63,7 @@ struct CalendarView: View {
           }
         }
         .sheet(isPresented: $showDayDetailsView) {
-          DayDetailsView(showDayDetailsView: $showDayDetailsView,dateData: selectDay)
+          DayDetailsView(showDayDetailsView: $showDayDetailsView,dateData: _selectDay)
         }
       }
 //      .frame(width: 400, height: 400, alignment: .top)
