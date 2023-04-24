@@ -63,7 +63,7 @@ struct CalendarView: View {
           }
         }
         .sheet(isPresented: $showDayDetailsView) {
-          DayDetailsView(showDayDetailsView: $showDayDetailsView,dateData: _selectDay)
+          DayScheduleView(showDayDetailsView: $showDayDetailsView,dateData: _selectDay)
         }
       }
 //      .frame(width: 400, height: 400, alignment: .top)

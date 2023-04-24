@@ -1,5 +1,5 @@
 //
-//  DayDetailsView.swift
+//  DayScheduleView.swift
 //  schedule-book
 //
 //  Created by Mikizin on 2023/04/10.
@@ -11,7 +11,7 @@ final class ViewDateData: ObservableObject {
   @Published var date: Date? = Date()
 }
 
-struct DayDetailsView: View {
+struct DayScheduleView: View {
   @Binding var showDayDetailsView: Bool
   @ObservedObject var dateData: ViewDateData
   @State private var isAddSchedule = false
@@ -54,7 +54,7 @@ struct DayDetailsView: View {
       //  予定リスト
       List(viewModel.schedules) { schedule in
         NavigationLink(destination: RepositoryView()) {
-          ScheduleListItem(schedule: schedule)
+          ScheduleItem(schedule: schedule)
         }
       }
       Spacer()
@@ -63,10 +63,10 @@ struct DayDetailsView: View {
 }
 
 
-struct DayDetails_Previews: PreviewProvider {
+struct DayScheduleView_Previews: PreviewProvider {
   @State private static var showDayDetailsView = false
   @ObservedObject static var dateData = ViewDateData()
   static var previews: some View {
-    DayDetailsView(showDayDetailsView: $showDayDetailsView, dateData: _dateData)
+    DayScheduleView(showDayDetailsView: $showDayDetailsView, dateData: _dateData)
   }
 }

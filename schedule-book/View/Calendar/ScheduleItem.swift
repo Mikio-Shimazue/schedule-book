@@ -1,5 +1,5 @@
 //
-//  ScheduleListItem.swift
+//  ScheduleItem.swift
 //  schedule-book
 //
 //  Created by Mikizin on 2023/04/12.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ScheduleListItem: View {
+struct ScheduleItem: View {
   let schedule: ScheduleData
   /// 時刻部背景色
   let timeColor: Color = Color.rgb(red: 251,green: 238,blue: 223)
@@ -56,8 +56,8 @@ struct ScheduleListItem: View {
   }
 }
 
-struct ScheduleListItem_Previews: PreviewProvider {
+struct ScheduleItem_Previews: PreviewProvider {
     static var previews: some View {
-      ScheduleListItem(schedule: ScheduleData(startTime: Date(), duration: Double(60), information: String("予定詳細内容")))
+      ScheduleItem(schedule: ScheduleData(startTime: Date(), duration: Double(60), information: String("予定詳細内容")))
     }
 }
