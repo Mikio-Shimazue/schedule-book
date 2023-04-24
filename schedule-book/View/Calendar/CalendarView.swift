@@ -50,7 +50,7 @@ struct CalendarView: View {
         LazyVGrid(columns: columns, spacing: 5) {
           ForEach(calendarDates) { calendarDates in
             if let date = calendarDates.date, let day = Calendar.current.day(for: date) {
-              CatalogItem(symbol:String(day),color: selectedColor,backgroundColor: backgroundColor)
+              CalendarCellItem(symbol:String(day),color: selectedColor,backgroundColor: backgroundColor)
                 .frame(width: 40,height: 80)
                 .onTapGesture {
                   print(date)
@@ -58,7 +58,7 @@ struct CalendarView: View {
                   showDayDetailsView = true
                 }
             } else {
-              CatalogItem(color: selectedColor,backgroundColor: backgroundColor).frame(width: 40,height: 80)
+              CalendarCellItem(color: selectedColor,backgroundColor: backgroundColor).frame(width: 40,height: 80)
             }
           }
         }
