@@ -11,7 +11,7 @@ final class ViewDateData: ObservableObject {
   @Published var date: Date? = Date()
 }
 
-struct DayScheduleView: View {
+struct DailyScheduleView: View {
   @Binding var showDayDetailsView: Bool
   @ObservedObject var dateData: ViewDateData
   @State private var isAddSchedule = false
@@ -63,10 +63,10 @@ struct DayScheduleView: View {
 }
 
 
-struct DayScheduleView_Previews: PreviewProvider {
+struct DailyScheduleView_Previews: PreviewProvider {
   @State private static var showDayDetailsView = false
   @ObservedObject static var dateData = ViewDateData()
   static var previews: some View {
-    DayScheduleView(showDayDetailsView: $showDayDetailsView, dateData: _dateData)
+    DailyScheduleView(showDayDetailsView: $showDayDetailsView, dateData: _dateData)
   }
 }
