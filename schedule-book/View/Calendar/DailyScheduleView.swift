@@ -54,7 +54,7 @@ struct DailyScheduleView: View {
       //  予定リスト
       List(viewModel.schedules) { schedule in
         NavigationLink(destination: RepositoryView()) {
-          ScheduleItem(schedule: schedule)
+          ScheduleView(schedule: schedule)
         }
       }
       Spacer()

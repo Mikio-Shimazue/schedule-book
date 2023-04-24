@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ScheduleItem: View {
+struct ScheduleView: View {
   let schedule: ScheduleData
   /// 時刻部背景色
   let timeColor: Color = Color.rgb(red: 251,green: 238,blue: 223)
@@ -56,8 +56,8 @@ struct ScheduleItem: View {
   }
 }
 
-struct ScheduleItem_Previews: PreviewProvider {
+struct ScheduleView_Previews: PreviewProvider {
     static var previews: some View {
-      ScheduleItem(schedule: ScheduleData(startTime: Date(), duration: Double(60), information: String("予定詳細内容")))
+      ScheduleView(schedule: ScheduleData(startTime: Date(), duration: Double(60), information: String("予定詳細内容")))
     }
 }
