@@ -28,36 +28,38 @@ struct DailyScheduleView: View {
   }
 
   var body: some View {
-    VStack {
-      HStack(alignment: .top) {
-        Text(dateData.date?.getDateAndWeek() ?? "non")
-          .padding(.leading,30)
-        Spacer()
-        Button(action: {
-          self.isAddSchedule.toggle()
-        }) {
-          if isAddSchedule {
-            Image(systemName: "plus.circle")
-              .resizable()
-              .frame(width: 30,height: 30)
-              .scaledToFit()
-          } else {
-            Image(systemName: "plus.circle")
-              .resizable()
-              .frame(width: 30,height: 30,alignment: .top)
-            
+    NavigationView {
+      VStack {
+        HStack(alignment: .top) {
+          Text(dateData.date?.getDateAndWeek() ?? "non")
+            .padding(.leading,30)
+          Spacer()
+          Button(action: {
+            self.isAddSchedule.toggle()
+          }) {
+            if isAddSchedule {
+              Image(systemName: "plus.circle")
+                .resizable()
+                .frame(width: 30,height: 30)
+                .scaledToFit()
+            } else {
+              Image(systemName: "plus.circle")
+                .resizable()
+                .frame(width: 30,height: 30,alignment: .top)
+              
+            }
+          }
+          .padding(.trailing)
+        }
+        .padding(.bottom,20)
+        //  予定リスト
+        List(viewModel.schedules) { schedule in
+          NavigationLink(destination: ScheduleEditingView()) {
+            ScheduleView(schedule: schedule)
           }
         }
-        .padding(.trailing)
+        Spacer()
       }
-      .padding(.bottom,20)
-      //  予定リスト
-      List(viewModel.schedules) { schedule in
-        NavigationLink(destination: ScheduleEditingView()) {
-          ScheduleView(schedule: schedule)
-        }
-      }
-      Spacer()
     }
   }
 }
