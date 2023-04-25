@@ -10,6 +10,7 @@ import Foundation
 
 class CodeCheck {
   func check() {
+    jsonTest().forJson()
     CheckDate().check()
     CheckString().check()
     CheckEnum().check()
