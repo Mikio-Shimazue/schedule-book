@@ -44,9 +44,7 @@ struct Shop: Codable {
     case recommend
     case updateDate = "update_date"
   }
-
 }
-
 
 class jsonTest {
   func forJson(){
@@ -64,13 +62,39 @@ class jsonTest {
       fatalError("Failed to encode to JSON")
     }
     
-    print(String(bytes: jsonValue, encoding: .utf8))
+    print(String(bytes: jsonValue, encoding: .utf8)!)
 
     /*
     //   .prettyPrintedなしの場合→ encoder.outputFormatting = .prettyPrinted //  出力整形
-     "{\"name\":\"岡崎ショッピングモール\",\"shop_list\":[{\"code\":\"001\",\"kind\":1,\"update_date\":\"2023-04-25T21:10:25Z\",\"name\":\"yakiniku家\",\"recommend\":\"ハラミステーキ\",\"address\":\"岡崎市明大寺長\"},{\"code\":\"002\",\"kind\":1,\"update_date\":\"2023-04-25T21:10:25Z\",\"name\":\"伊太利亜麺家\",\"address\":\"岡崎市明大寺長\"},{\"code\":\"003\",\"kind\":1,\"update_date\":\"2023-04-25T21:10:25Z\",\"name\":\"中華麺家\",\"address\":\"岡崎市明大寺長\"}]}"
+     {"name":"岡崎ショッピングモール","shop_list":[{"code":"001","kind":1,"update_date":"2023-04-26T21:23:39Z","name":"yakiniku家","recommend":"ハラミステーキ","address":"岡崎市明大寺長"},{"code":"002","kind":1,"update_date":"2023-04-26T21:23:39Z","name":"伊太利亜麺家","address":"岡崎市明大寺長"},{"code":"003","kind":1,"update_date":"2023-04-26T21:23:39Z","name":"中華麺家","address":"岡崎市明大寺長"}]}
     //   .prettyPrintedありの場合→ encoder.outputFormatting = .prettyPrinted //  出力整形
-     "{\n  \"name\" : \"岡崎ショッピングモール\",\n  \"shop_list\" : [\n    {\n      \"code\" : \"001\",\n      \"kind\" : 1,\n      \"update_date\" : \"2023-04-25T21:08:33Z\",\n      \"name\" : \"yakiniku家\",\n      \"recommend\" : \"ハラミステーキ\",\n      \"address\" : \"岡崎市明大寺長\"\n    },\n    {\n      \"code\" : \"002\",\n      \"kind\" : 1,\n      \"update_date\" : \"2023-04-25T21:08:33Z\",\n      \"name\" : \"伊太利亜麺家\",\n      \"address\" : \"岡崎市明大寺長\"\n    },\n    {\n      \"code\" : \"003\",\n      \"kind\" : 1,\n      \"update_date\" : \"2023-04-25T21:08:33Z\",\n      \"name\" : \"中華麺家\",\n      \"address\" : \"岡崎市明大寺長\"\n    }\n  ]\n}"
+     {
+       "name" : "岡崎ショッピングモール",
+       "shop_list" : [
+         {
+           "code" : "001",
+           "kind" : 1,
+           "update_date" : "2023-04-26T21:22:36Z",
+           "name" : "yakiniku家",
+           "recommend" : "ハラミステーキ",
+           "address" : "岡崎市明大寺長"
+         },
+         {
+           "code" : "002",
+           "kind" : 1,
+           "update_date" : "2023-04-26T21:22:36Z",
+           "name" : "伊太利亜麺家",
+           "address" : "岡崎市明大寺長"
+         },
+         {
+           "code" : "003",
+           "kind" : 1,
+           "update_date" : "2023-04-26T21:22:36Z",
+           "name" : "中華麺家",
+           "address" : "岡崎市明大寺長"
+         }
+       ]
+     }
     */
     //  JSONから変換
     let decoder = JSONDecoder()
@@ -81,7 +105,7 @@ class jsonTest {
     
     print(shopGroup)
     /*
-     hopGroup(name: "岡崎ショッピングモール", shopList: [schedule_book.Shop(code: "001", name: "yakiniku家", address: "岡崎市明大寺長", kind: 1, recommend: Optional("ハラミステーキ"), updateDate: Optional(2023-04-25 21:00:49 +0000)), schedule_book.Shop(code: "002", name: "伊太利亜麺家", address: "岡崎市明大寺長", kind: 1, recommend: nil, updateDate: Optional(2023-04-25 21:00:49 +0000)), schedule_book.Shop(code: "003", name: "中華麺家", address: "岡崎市明大寺長", kind: 1, recommend: nil, updateDate: Optional(2023-04-25 21:00:49 +0000))], updateDate: nil)
+     shopGroup(name: "岡崎ショッピングモール", shopList: [schedule_book.Shop(code: "001", name: "yakiniku家", address: "岡崎市明大寺長", kind: 1, recommend: Optional("ハラミステーキ"), updateDate: Optional(2023-04-25 21:00:49 +0000)), schedule_book.Shop(code: "002", name: "伊太利亜麺家", address: "岡崎市明大寺長", kind: 1, recommend: nil, updateDate: Optional(2023-04-25 21:00:49 +0000)), schedule_book.Shop(code: "003", name: "中華麺家", address: "岡崎市明大寺長", kind: 1, recommend: nil, updateDate: Optional(2023-04-25 21:00:49 +0000))], updateDate: nil)
      (lldb)
      */
     /*
@@ -90,6 +114,7 @@ class jsonTest {
     }
      */
   }
+  
 }
 
 //  サーバーからのJSON読出し例
