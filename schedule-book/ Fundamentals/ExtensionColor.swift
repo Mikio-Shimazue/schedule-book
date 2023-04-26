@@ -1,5 +1,5 @@
 //
-//  ColorExtentsion.swift
+//  ExtentsionColor.swift
 //  schedule-book
 //
 //  Created by Mikizin on 2023/04/22.
