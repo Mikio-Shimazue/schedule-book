@@ -26,7 +26,7 @@ struct CalendarView: View {
   @State private var showDayDetailsView = false
   @ObservedObject var selectDay = ViewDateData()
   @StateObject var viewModel: CalendarViewModel
-
+  @ObservedObject var dayViewModel = DayDetailViewModel()
   
   //  MARK: -
 
@@ -56,6 +56,7 @@ struct CalendarView: View {
                   print(date)
                   selectDay.date = date
                   showDayDetailsView = true
+                  dayViewModel.setDay(date: date)
                 }
             } else {
               CalendarCellItem(color: selectedColor,backgroundColor: backgroundColor).frame(width: 40,height: 80)
@@ -63,7 +64,7 @@ struct CalendarView: View {
           }
         }
         .sheet(isPresented: $showDayDetailsView) {
-          DailyScheduleView(showDayDetailsView: $showDayDetailsView,dateData: _selectDay)
+          DailyScheduleView(showDayDetailsView: $showDayDetailsView,dateData: _selectDay,viewModel: _dayViewModel)
         }
       }
 //      .frame(width: 400, height: 400, alignment: .top)

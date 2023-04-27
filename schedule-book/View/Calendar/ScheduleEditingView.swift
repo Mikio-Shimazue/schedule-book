@@ -8,55 +8,70 @@
 import SwiftUI
 
 struct ScheduleEditingView: View {
-  let schedule: ScheduleData
+  @ObservedObject var viewModel: DayDetailViewModel
   @State var alarm = false
-  
-    var body: some View {
-      VStack(spacing:20) {
-        Text("Schedule Title").font(.title)
+  @State var showTimePicker = false
+  @State var selectedDate: Date?
+  @ObservedObject var viewDay = ViewDateData()
 
-        HStack() {
-          //  予定時刻表示部
-          let startDay = schedule.startTime?.getDateString() ?? ""
-          Text(startDay).font(.callout).padding(.leading)
-          
-          Spacer().frame(width:5)
+  var body: some View {
+    VStack(spacing: 20) {
+      let title = viewModel.getCurrentSchedule().information
+      Text(title ?? "non").font(.title)
 
-          let startTime = schedule.startTime?.getTimeString() ?? ""
-          Text(startTime)
-            .font(.title)
-            .padding(.leading)
-            .onTapGesture {
-            }
-          Text("-")
-            .font(.title)
-            .padding(.leading)
-          let endTime = schedule.getEndTimeString() ?? ""
+      HStack {
+        //  予定時刻表示部
+        let startDay = viewModel.getCurrentSchedule().startTime?.getDateString() ?? ""
+        Text(startDay).font(.callout).padding(.leading)
 
-          Text(endTime)
-            .font(.title)
-            .padding(.leading)
-          Spacer()
-        }
-        Divider()
-        HStack {
-          Image(systemName: "alarm.waves.left.and.right")
-            .resizable()
-            .scaledToFit()
-            .frame(height: 26,alignment: .trailing)
-            .padding(.leading)
-          Toggle("", isOn: $alarm)
-            .padding(.trailing)
-        }
-        Divider()
+        Spacer().frame(width: 5)
 
-        Spacer()  //
+        let startTime = viewModel.getCurrentSchedule().startTime?.getTimeString() ?? ""
+        Text(startTime)
+          .font(.title)
+          .padding(.leading)
+          .onTapGesture {}
+        Text("-")
+          .font(.title)
+          .padding(.leading)
+        let endTime = viewModel.getCurrentSchedule().getEndTimeString() ?? ""
+
+        Text(endTime)
+          .font(.title)
+          .padding(.leading)
+        Spacer()
       }
+      .onTapGesture {
+        withAnimation {
+          if let date = viewModel.getCurrentSchedule().startTime {
+            selectedDate = date
+            showTimePicker = true
+          }
+        }
+      }
+      Divider()
+      HStack {
+        Image(systemName: "alarm.waves.left.and.right")
+          .resizable()
+          .scaledToFit()
+          .frame(height: 26, alignment: .trailing)
+          .padding(.leading)
+        Toggle("", isOn: $alarm)
+          .padding(.trailing)
+      }
+      Divider()
+
+      Spacer() //
     }
+    .sheet(isPresented: $showTimePicker) {
+      TimePickerView(showTimePicker: $showTimePicker, date: $selectedDate,viewModel: _viewModel)
+    }
+  }
 }
 
 struct ScheduleEditingView_Previews: PreviewProvider {
-    static var previews: some View {
-      ScheduleEditingView(schedule: ScheduleData(startTime: Date(), duration: Double(60), information: String("予定詳細内容")))
-    }
+  @ObservedObject static var viewModel = DayDetailViewModel()
+  static var previews: some View {
+    ScheduleEditingView(viewModel:viewModel)
+  }
 }

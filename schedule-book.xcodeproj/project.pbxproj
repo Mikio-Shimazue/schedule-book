@@ -22,6 +22,7 @@
 		8BEF6995299A5C3C00901C05 /* schedule_bookApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BEF6994299A5C3C00901C05 /* schedule_bookApp.swift */; };
 		8BEF6999299A5C3D00901C05 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8BEF6998299A5C3D00901C05 /* Assets.xcassets */; };
 		8BEF699C299A5C3D00901C05 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8BEF699B299A5C3D00901C05 /* Preview Assets.xcassets */; };
+		8BF0B86929FA77CF00ADB4FB /* TimePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF0B86829FA77CF00ADB4FB /* TimePickerView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,6 +42,7 @@
 		8BEF6994299A5C3C00901C05 /* schedule_bookApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = schedule_bookApp.swift; sourceTree = "<group>"; };
 		8BEF6998299A5C3D00901C05 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8BEF699B299A5C3D00901C05 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		8BF0B86829FA77CF00ADB4FB /* TimePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimePickerView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,6 +100,7 @@
 				8BD34F4B29E419EE00C80B93 /* DailyScheduleView.swift */,
 				8B2A2F7F29E6C89400D92C52 /* ScheduleView.swift */,
 				8B59B7A829F69A0F008CBE02 /* ScheduleEditingView.swift */,
+				8BF0B86829FA77CF00ADB4FB /* TimePickerView.swift */,
 			);
 			path = Calendar;
 			sourceTree = "<group>";
@@ -213,6 +216,7 @@
 			files = (
 				8B1B4E7229F3626700C2BDF5 /* ExtensionColor.swift in Sources */,
 				8B59B7A929F69A0F008CBE02 /* ScheduleEditingView.swift in Sources */,
+				8BF0B86929FA77CF00ADB4FB /* TimePickerView.swift in Sources */,
 				8B850C6F29F3A4CD00557B3A /* DayDetailViewModel.swift in Sources */,
 				8B2A2F8029E6C89400D92C52 /* ScheduleView.swift in Sources */,
 				8B8AEE2E29E0189F002AAD0D /* CalendarCellItem.swift in Sources */,

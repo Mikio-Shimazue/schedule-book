@@ -15,16 +15,16 @@ struct DailyScheduleView: View {
   @Binding var showDayDetailsView: Bool
   @ObservedObject var dateData: ViewDateData
   @State private var isAddSchedule = false
-  @StateObject var viewModel: DayDetailViewModel
+  @ObservedObject var viewModel: DayDetailViewModel
 
   //  MARK: -
 
   init(showDayDetailsView: Binding<Bool>,
-       dateData: ObservedObject<ViewDateData>) {
-    _viewModel = StateObject(wrappedValue: DayDetailViewModel())
+       dateData: ObservedObject<ViewDateData>,viewModel: ObservedObject<DayDetailViewModel>
+) {
     _showDayDetailsView = showDayDetailsView
     _dateData = dateData
-    
+    _viewModel = viewModel
   }
 
   var body: some View {
@@ -54,8 +54,8 @@ struct DailyScheduleView: View {
         .padding(.bottom,20)
         //  予定リスト
         List(viewModel.schedules) { schedule in
-          NavigationLink(destination: ScheduleEditingView(schedule: schedule)) {
-            ScheduleView(schedule: schedule)
+          NavigationLink(destination: ScheduleEditingView(viewModel: viewModel)) {
+            ScheduleView(viewModel: viewModel)
           }
         }
         Spacer()
@@ -68,7 +68,8 @@ struct DailyScheduleView: View {
 struct DailyScheduleView_Previews: PreviewProvider {
   @State private static var showDayDetailsView = false
   @ObservedObject static var dateData = ViewDateData()
+  @ObservedObject static var viewModel = DayDetailViewModel()
   static var previews: some View {
-    DailyScheduleView(showDayDetailsView: $showDayDetailsView, dateData: _dateData)
+    DailyScheduleView(showDayDetailsView: $showDayDetailsView, dateData: _dateData,viewModel: _viewModel)
   }
 }
