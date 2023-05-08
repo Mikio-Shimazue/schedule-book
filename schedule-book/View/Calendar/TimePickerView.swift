@@ -8,19 +8,17 @@
 import SwiftUI
 
 struct TimePickerView: View {
-  @ObservedObject var viewModel: DayDetailViewModel
   @Binding var showTimePicker: Bool
-  init(showTimePicker: Binding<Bool>, viewModel: ObservedObject<DayDetailViewModel>) {
+  @Binding var editDate: Date
+  init(showTimePicker: Binding<Bool>, editDate: Binding<Date>) {
     _showTimePicker = showTimePicker
-    _viewModel = viewModel
+    _editDate = editDate
   }
 
   var body: some View {
-    Text(viewModel.getCurrentSchedule().startTime?.getDateString() ?? "non")
+    Text(editDate.getDateString())
       .onTapGesture {
-        if let date = viewModel.getCurrentSchedule().startTime {
-          self.viewModel.getCurrentSchedule().startTime = date.addingTimeInterval(60*60*3)
-        }
+          editDate = editDate.addingTimeInterval(60*60*3)
         showTimePicker = false
       }
   }
@@ -28,10 +26,9 @@ struct TimePickerView: View {
 
 struct TimePickerView_Previews: PreviewProvider {
   @State static var showTimePicker = false
-  @State static var date: Date? = Date()
-  @ObservedObject static var viewModel = DayDetailViewModel()
+  @State static var date: Date = Date()
 
   static var previews: some View {
-    TimePickerView(showTimePicker: $showTimePicker, viewModel: _viewModel)
+    TimePickerView(showTimePicker: $showTimePicker, editDate: $date)
   }
 }

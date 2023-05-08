@@ -17,11 +17,13 @@ class DayDetailViewModel: ObservableObject {
   init(schedules: [ScheduleData] = [ScheduleData]()) {
     self.schedules = schedules
   }
+
   func setDay(date: Date) {
     schedules.removeAll()
     //  該当日付のスケジュールデータを取得
     getSchedule(date: date)
   }
+
   //  該当日付のスケジュールデータを取得
   /// - Parameter date: スケジュールを取得する日付
   func getSchedule(date: Date) {
@@ -34,7 +36,17 @@ class DayDetailViewModel: ObservableObject {
     }
   }
   
-  func getCurrentSchedule() -> ScheduleData{
+  func getCurrentSchedule() -> ScheduleData {
     return self.schedules[0]
+  }
+  
+  func setCurrentScheduleStartDate(startTime: Date) {
+    let newScheduleData = ScheduleData(
+      startTime: startTime,
+      duration: getCurrentSchedule().duration,
+      information: getCurrentSchedule().information)
+      
+    self.schedules[0] = newScheduleData
+    objectWillChange.send()
   }
 }

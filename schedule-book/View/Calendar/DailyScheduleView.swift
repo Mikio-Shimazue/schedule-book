@@ -54,11 +54,19 @@ struct DailyScheduleView: View {
         .padding(.bottom,20)
         //  予定リスト
         List(viewModel.schedules) { schedule in
-          NavigationLink(destination: ScheduleEditingView(viewModel: viewModel)) {
-            ScheduleView(viewModel: viewModel)
+          NavigationLink(destination: ScheduleEditingView(viewModel: viewModel).onDisappear(){
+
+          }
+          ) {
+            ScheduleView(scheduleData: schedule)
           }
         }
         Spacer()
+      }
+    }
+    .onAppear() {
+      if let date = dateData.date {
+        self.viewModel.getCurrentSchedule()
       }
     }
   }

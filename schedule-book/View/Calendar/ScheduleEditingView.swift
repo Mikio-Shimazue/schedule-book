@@ -10,7 +10,7 @@ import SwiftUI
 struct ScheduleEditingView: View {
   @ObservedObject var viewModel: DayDetailViewModel
   @State var showTimePicker = false
-  @State var startTimeText = ""
+  @State var startTime = Date()
   @State var alarm = false
 
   var body: some View {
@@ -21,12 +21,11 @@ struct ScheduleEditingView: View {
       HStack {
         //  予定時刻表示部
         let startDay = viewModel.getCurrentSchedule().startTime?.getDateString() ?? ""
-        Text(startDay).font(.callout).padding(.leading)
+        Text(startTime.getDateString()).font(.callout).padding(.leading)
 
         Spacer().frame(width: 5)
 
-        let startTime = viewModel.getCurrentSchedule().startTime?.getTimeString() ?? ""
-        Text(startTimeText.isEmpty ? viewModel.getCurrentSchedule().startTime?.getTimeString() ?? "" : startTimeText)
+        Text(startTime.getTimeString() ?? "" )
           .font(.title)
           .padding(.leading)
           .onTapGesture {}
@@ -61,12 +60,16 @@ struct ScheduleEditingView: View {
     }
     .sheet(isPresented: $showTimePicker,
            onDismiss: {
-      // sheetで表示したViewを閉時時の処理
-      //  表示時刻のTimePickerで編集後の時刻に更新
-      startTimeText = viewModel.getCurrentSchedule().startTime?.getTimeString() ?? ""
-      print("")
+      // sheetで表示したViewを閉時時の処理が必要な場合はここに記述
+
     }) {
-      TimePickerView(showTimePicker: $showTimePicker,viewModel: _viewModel)
+      TimePickerView(showTimePicker: $showTimePicker,editDate: $startTime)
+    }
+    .onAppear(){
+      //  表示前に時刻を取得
+      if let time = viewModel.getCurrentSchedule().startTime {
+        startTime = time
+      }
     }
   }
 }

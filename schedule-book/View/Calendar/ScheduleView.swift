@@ -8,10 +8,11 @@
 import SwiftUI
 
 struct ScheduleView: View {
-  @ObservedObject var viewModel: DayDetailViewModel
+  var scheduleData: ScheduleData
+
   /// 時刻部背景色
   let timeColor: Color = Color.rgb(red: 251, green: 238, blue: 223)
-  /// 予定内容ぶ背景色
+  /// 予定内容背景色
   let infoColor: Color = Color.rgb(red: 202, green: 255, blue: 246)
 
   var body: some View {
@@ -20,13 +21,10 @@ struct ScheduleView: View {
       Spacer().frame(width: 5)
       //  予定時刻表示部
       VStack {
-        if let startTime = viewModel.getCurrentSchedule().getStartTimeString() {
-          Text(startTime)
-        } else {
-          Text("--:--")
-        }
+        Text(scheduleData.startTime?.getTimeString() ?? "" )
+
         Text("|")
-        if let endTime = viewModel.getCurrentSchedule().getEndTimeString() {
+        if let endTime = scheduleData.getEndTimeString() {
           Text(endTime)
         } else {
           Text("--:--")
@@ -39,7 +37,7 @@ struct ScheduleView: View {
       Divider()
 
       HStack {
-        Text(viewModel.getCurrentSchedule().information ?? "")
+        Text(scheduleData.information ?? "")
 //          .frame(width:250, height:20,alignment: .leading)
           .padding(.leading, 10)
 
@@ -57,9 +55,9 @@ struct ScheduleView: View {
 }
 
 struct ScheduleView_Previews: PreviewProvider {
-  @ObservedObject static var viewModel = DayDetailViewModel()
+  static var scheduleData =  ScheduleData(startTime:Date())
 
   static var previews: some View {
-    ScheduleView(viewModel: DayDetailViewModel())
+    ScheduleView(scheduleData: scheduleData)
   }
 }

@@ -35,11 +35,15 @@ extension Date {
   /// <#Description#>
   /// - Returns: <#description#>
   func getTimeString() -> String? {
-    let formatter = DateFormatter()
-    formatter.locale = Locale.current
-    formatter.timeZone = TimeZone.current
-    formatter.dateFormat = "HH:mm"
+    let dateFormatter = DateFormatter()
+    dateFormatter.calendar = Calendar.current
+    dateFormatter.locale = Locale.current
+    dateFormatter.timeZone = TimeZone.current
+    dateFormatter.dateFormat = "HH:mm"
     
-    return formatter.string(from: self)
+    let time = dateFormatter.string(from: self)
+
+    return time
   }
+  
 }
