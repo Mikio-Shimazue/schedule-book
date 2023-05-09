@@ -54,7 +54,7 @@ struct DailyScheduleView: View {
         .padding(.bottom,20)
         //  予定リスト
         List(viewModel.schedules) { schedule in
-          NavigationLink(destination: ScheduleEditingView(viewModel: viewModel).onDisappear(){
+          NavigationLink(destination: ScheduleEditingView(viewModel: _viewModel).onDisappear(){
 
           }
           ) {
@@ -65,9 +65,6 @@ struct DailyScheduleView: View {
       }
     }
     .onAppear() {
-      if let date = dateData.date {
-        self.viewModel.getCurrentSchedule()
-      }
     }
   }
 }
@@ -79,5 +76,8 @@ struct DailyScheduleView_Previews: PreviewProvider {
   @ObservedObject static var viewModel = DayDetailViewModel()
   static var previews: some View {
     DailyScheduleView(showDayDetailsView: $showDayDetailsView, dateData: _dateData,viewModel: _viewModel)
+      .onAppear(){
+        viewModel.setDay(date: Date())
+      }
   }
 }

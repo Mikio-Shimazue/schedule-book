@@ -55,7 +55,7 @@ struct ScheduleView: View {
 }
 
 struct ScheduleView_Previews: PreviewProvider {
-  static var scheduleData =  ScheduleData(startTime:Date())
+  static var scheduleData =  ScheduleData(startTime:Date(),information: "SwiftUI マスターしよう")
 
   static var previews: some View {
     ScheduleView(scheduleData: scheduleData)
