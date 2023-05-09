@@ -25,6 +25,14 @@ class ScheduleData: Identifiable {
     self.duration = duration
     self.information = information
   }
+  
+  func getTitleString() -> String? {
+    if 10 < (information?.count ?? 0) {
+      let str = information!.prefix(10) + "..."
+      return String(str)
+    }
+    return information
+  }
   /// 開始時刻（String）取得
   /// - Returns: 開始時刻(HH:mm)取得
   func getStartTimeString() -> String? {
