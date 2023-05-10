@@ -15,9 +15,11 @@ class ScheduleRepository  {
   static let shared = ScheduleRepository()
   
   //  MARK: - プライベート変数(Private Properties) -
-
+  
   /// スケジュールデータ
   private var scheduleDataList: [ScheduleData] = []
+  /// 1時間(秒)
+  private let oneHour = Double(60 * 60)
   
   init(){
     loadData()
@@ -52,14 +54,14 @@ class ScheduleRepository  {
     var scheduleData = ScheduleData()
     
     scheduleData.startTime = Date()
-    scheduleData.duration = 60
+    scheduleData.duration = oneHour
     scheduleData.information = "エンジニア　オンラインウェビナー【ChatGPTを使いこなせ！！】"
     
     scheduleDataList.append(scheduleData)
     
     scheduleData = ScheduleData()
     scheduleData.startTime = Date()
-    scheduleData.duration = 60
+    scheduleData.duration = oneHour
     scheduleData.information = "ブログ　オンラインウェビナー【ChatGPTを使いこなせ！！】"
     
     scheduleDataList.append(scheduleData)

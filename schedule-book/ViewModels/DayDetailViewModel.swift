@@ -37,7 +37,8 @@ class DayDetailViewModel: ObservableObject {
   }
   
   
-  /// カレントスケジュールを新しいスケジュールに書き替える
+  /// カレントスケジュールを書き替える
+  /// カレント未指定の場合は新規登録
   /// - Parameter scheduleData: 新しいスケシュールデータ
   func setCurrentScheduleData(scheduleData: ScheduleData) {
     let newScheduleData = ScheduleData(
@@ -45,7 +46,12 @@ class DayDetailViewModel: ObservableObject {
       duration: scheduleData.duration,
       information: scheduleData.information)
     
-    self.schedules[currentIndex] = newScheduleData
+    if 0 <= currentIndex {
+      self.schedules[currentIndex] = newScheduleData
+    } else {
+      ScheduleRepository.shared.setSchedule(scheduleData: newScheduleData)
+      setDay(date:newScheduleData.startTime!)
+    }
     objectWillChange.send()
   }
   

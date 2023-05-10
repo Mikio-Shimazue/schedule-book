@@ -30,6 +30,7 @@ struct DailyScheduleView: View {
   var body: some View {
     NavigationView {
       VStack {
+        Spacer()
         HStack(alignment: .top) {
           Text(dateData.date?.getDateAndWeek() ?? "non")
             .padding(.leading,30)
@@ -38,22 +39,22 @@ struct DailyScheduleView: View {
             self.isAddSchedule.toggle()
           }) {
             if isAddSchedule {
-              Image(systemName: "plus.circle")
+              Image(systemName: "plus")
                 .resizable()
-                .frame(width: 30,height: 30)
+                .frame(width: 24,height: 24)
                 .scaledToFit()
             } else {
-              Image(systemName: "plus.circle")
+              Image(systemName: "plus")
                 .resizable()
-                .frame(width: 30,height: 30,alignment: .top)
+                .frame(width: 24,height: 24,alignment: .top)
               
             }
           }
-          .padding(.trailing)
+          .padding(.trailing,30)
         }
         .padding(.bottom,20)
         //  予定リスト
-        List(viewModel.schedules.indices) { index in
+        List(viewModel.schedules.indices, id: \.self) { index in
           NavigationLink(destination: ScheduleEditingView(viewModel: _viewModel,viewModelIndex: index).onDisappear(){
 
           }
@@ -64,6 +65,13 @@ struct DailyScheduleView: View {
         Spacer()
       }
     }
+    .sheet(isPresented: $isAddSchedule,
+           onDismiss: {
+      // sheetで表示したViewを閉時時の処理が必要な場合はここに記述
+    }) {
+      ScheduleEditingView(viewModel: _viewModel,viewModelIndex: -1)
+    }
+
   }
 }
 

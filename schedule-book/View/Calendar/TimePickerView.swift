@@ -16,11 +16,17 @@ struct TimePickerView: View {
   }
 
   var body: some View {
-    Text(editDate.getDateString())
-      .onTapGesture {
-          editDate = editDate.addingTimeInterval(60*60*3)
-        showTimePicker = false
-      }
+    VStack{
+      DatePicker(selection: $editDate, label: {
+        }
+      ).padding()
+        .datePickerStyle(.wheel)
+      Text(editDate.getDateString())
+        .onTapGesture {
+//          editDate = editDate.addingTimeInterval(60*60*3)
+          showTimePicker = false
+        }
+    }
   }
 }
 
