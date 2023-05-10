@@ -23,6 +23,7 @@
 		8BEF6999299A5C3D00901C05 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8BEF6998299A5C3D00901C05 /* Assets.xcassets */; };
 		8BEF699C299A5C3D00901C05 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8BEF699B299A5C3D00901C05 /* Preview Assets.xcassets */; };
 		8BF0B86929FA77CF00ADB4FB /* TimePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF0B86829FA77CF00ADB4FB /* TimePickerView.swift */; };
+		8BFF99B22A0BA1ED0050E4EF /* ExtentionString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BFF99B12A0BA1ED0050E4EF /* ExtentionString.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -43,6 +44,7 @@
 		8BEF6998299A5C3D00901C05 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8BEF699B299A5C3D00901C05 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		8BF0B86829FA77CF00ADB4FB /* TimePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimePickerView.swift; sourceTree = "<group>"; };
+		8BFF99B12A0BA1ED0050E4EF /* ExtentionString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtentionString.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +81,7 @@
 				8B1B4E7129F3626700C2BDF5 /* ExtensionColor.swift */,
 				8B4FD24E299B8F8C00ABBB41 /* ExtentionCalendar.swift */,
 				8B7F33DC29F00BC1006761CB /* ExtentionDate.swift */,
+				8BFF99B12A0BA1ED0050E4EF /* ExtentionString.swift */,
 			);
 			path = " Fundamentals";
 			sourceTree = "<group>";
@@ -218,6 +221,7 @@
 				8B59B7A929F69A0F008CBE02 /* ScheduleEditingView.swift in Sources */,
 				8BF0B86929FA77CF00ADB4FB /* TimePickerView.swift in Sources */,
 				8B850C6F29F3A4CD00557B3A /* DayDetailViewModel.swift in Sources */,
+				8BFF99B22A0BA1ED0050E4EF /* ExtentionString.swift in Sources */,
 				8B2A2F8029E6C89400D92C52 /* ScheduleView.swift in Sources */,
 				8B8AEE2E29E0189F002AAD0D /* CalendarCellItem.swift in Sources */,
 				8B7F33DD29F00BC1006761CB /* ExtentionDate.swift in Sources */,

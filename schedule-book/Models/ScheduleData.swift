@@ -26,23 +26,18 @@ class ScheduleData: Identifiable {
     self.information = information
   }
   
-  func getTitleString() -> String? {
-    if 10 < (information?.count ?? 0) {
-      let str = information!.prefix(10) + "..."
-      return String(str)
-    }
-    return information
-  }
+
   /// 開始時刻（String）取得
   /// - Returns: 開始時刻(HH:mm)取得
   func getStartTimeString() -> String? {
     return startTime?.getTimeString()
   }
   
-  /// 終了時刻(String)取得
-  /// - Returns: 終了時刻(HH:mm)取得
   func getEndTimeString() -> String? {
-    let endDate = startTime?.addingTimeInterval((duration ?? 0) * 60)
-    return endDate?.getTimeString()
+    if let duration = duration {
+      return startTime?.getAddingTimeString(addingTime: duration)
+    }
+    return nil
   }
+
 }

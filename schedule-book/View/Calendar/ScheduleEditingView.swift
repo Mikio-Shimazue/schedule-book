@@ -10,16 +10,18 @@ import SwiftUI
 struct ScheduleEditingView: View {
   @ObservedObject var viewModel: DayDetailViewModel
   @State var showTimePicker = false
-  @State var title = defaultTitle
+  @State var information = defaultTitle
   @State var startTime = Date()
-  @State var endTimeString = "00"
+  @State var duration = Double(0)
   @State var alarm = false
   @State var scheduleData = ScheduleData()
+  private var viewModelIndex: Int = 0
   private static let defaultTitle = "non"
   private static let defaultTime = "--"
 
-  init(viewModel: ObservedObject<DayDetailViewModel>
+  init(viewModel: ObservedObject<DayDetailViewModel>, viewModelIndex: Int
 ) {
+    self.viewModelIndex = viewModelIndex
     _viewModel = viewModel
   }
 
@@ -28,14 +30,18 @@ struct ScheduleEditingView: View {
       HStack{
         Spacer()
         Button("✔️"){
-          
+          // 編集データを登録
+          scheduleData.startTime = startTime
+          scheduleData.information = information
+          scheduleData.duration = duration
+          viewModel.setCurrentScheduleData(scheduleData: scheduleData)
         }
         .foregroundColor(.white)
         
         Spacer().frame(width: 30)
       }
       
-      Text(title ).font(.title)
+      Text(information.get3PointLeaderString(getCount: 10) ).font(.title)
 
       HStack {
         //  予定時刻表示部(日付）
@@ -44,7 +50,7 @@ struct ScheduleEditingView: View {
         Spacer().frame(width: 5)
 
         //  予定時刻表示部(開始時間）
-        Text(startTime.getTimeString() ?? ScheduleEditingView.defaultTime )
+        Text(startTime.getTimeString())
           .font(.title)
           .padding(.leading)
           .onTapGesture {}
@@ -53,7 +59,7 @@ struct ScheduleEditingView: View {
           .padding(.leading)
 
         //  予定時刻表示部(終了時間）
-        Text(endTimeString )
+        Text(startTime.getAddingTimeString(addingTime: duration))
           .font(.title)
           .padding(.leading)
         Spacer()
@@ -85,16 +91,14 @@ struct ScheduleEditingView: View {
     }
     .onAppear(){
       //  画面表示前処理
-      
+      viewModel.setCurrentScheduleIndex(index: viewModelIndex)
+      //  編集用データにセット
       scheduleData =  viewModel.getCurrentSchedule()
-      
-      title = scheduleData.getTitleString() ?? ScheduleEditingView.defaultTitle
+      information = scheduleData.information ?? ScheduleEditingView.defaultTitle
       if let time = scheduleData.startTime {
         startTime = time
       }
-      if let endTime = scheduleData.getEndTimeString() {
-        endTimeString = endTime
-      }
+      duration = scheduleData.duration ?? 0
     }
   }
 }
@@ -103,11 +107,10 @@ struct ScheduleEditingView_Previews: PreviewProvider {
   @ObservedObject static var viewModel = DayDetailViewModel()
   static var previews: some View {
     VStack{
-      ScheduleEditingView(viewModel:_viewModel)
+      ScheduleEditingView(viewModel:_viewModel, viewModelIndex: 0)
     }
     .onAppear(){
       viewModel.setDay(date: Date())
     }
-
   }
 }

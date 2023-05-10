@@ -53,18 +53,16 @@ struct DailyScheduleView: View {
         }
         .padding(.bottom,20)
         //  予定リスト
-        List(viewModel.schedules) { schedule in
-          NavigationLink(destination: ScheduleEditingView(viewModel: _viewModel).onDisappear(){
+        List(viewModel.schedules.indices) { index in
+          NavigationLink(destination: ScheduleEditingView(viewModel: _viewModel,viewModelIndex: index).onDisappear(){
 
           }
           ) {
-            ScheduleView(scheduleData: schedule)
+            ScheduleView(scheduleData: viewModel.schedules[index])
           }
         }
         Spacer()
       }
-    }
-    .onAppear() {
     }
   }
 }
