@@ -95,6 +95,9 @@ struct ScheduleEditingView: View {
         viewModel.setCurrentScheduleIndex(index: viewModelIndex)
         //  編集用データにセット
         scheduleData =  viewModel.getCurrentSchedule()
+      } else {
+        viewModel.setCurrentScheduleIndex(index: -1)
+      }
       }
       information = scheduleData.information ?? ScheduleEditingView.defaultTitle
       if let time = scheduleData.startTime {
