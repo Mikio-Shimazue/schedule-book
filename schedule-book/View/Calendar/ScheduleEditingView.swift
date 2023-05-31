@@ -111,6 +111,8 @@ struct ScheduleEditingView: View {
       information = scheduleData.information ?? ScheduleEditingView.defaultTitle
       if let time = scheduleData.startTime {
         startTime = time
+      } else if let time = viewModel.day {
+        startTime = time
       }
       duration = scheduleData.duration ?? 0
     }

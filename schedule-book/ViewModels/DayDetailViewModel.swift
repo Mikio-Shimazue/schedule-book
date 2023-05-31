@@ -10,9 +10,11 @@ import Foundation
 
 /// 日付詳細ViewModel
 class DayDetailViewModel: ObservableObject {
+  @Published var schedules:[ScheduleData]
+
+  var day: Date?
   /// objectWillChange.sendすることでデータの更新を通知できる
   private(set) var objectWillChange = ObservableObjectPublisher()
-  @Published var schedules:[ScheduleData]
   private var currentIndex: Int = -1
   
   init(schedules: [ScheduleData] = [ScheduleData]()) {
@@ -22,6 +24,7 @@ class DayDetailViewModel: ObservableObject {
   /// 指定日の予定データを抽出
   /// - Parameter date: 指定日
   func setDay(date: Date) {
+    day = date
     schedules.removeAll()
     //  該当日付のスケジュールデータを取得
     getSchedule(date: date)
@@ -30,6 +33,11 @@ class DayDetailViewModel: ObservableObject {
   func setCurrentScheduleIndex(index: Int) {
     currentIndex = index
   }
+  
+  func getCurrentScheduleIndex() -> Int {
+    return currentIndex
+  }
+
   /// カレントスケジュールを取得
   /// - Returns: カレントスケジュール
   func getCurrentSchedule() -> ScheduleData {
