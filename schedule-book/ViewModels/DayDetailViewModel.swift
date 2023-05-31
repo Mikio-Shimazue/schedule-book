@@ -67,6 +67,13 @@ class DayDetailViewModel: ObservableObject {
     objectWillChange.send()
   }
   
+  /// カレントインデックスデータを削除
+  func deleteCurrentScheduleData() {
+    ScheduleRepository.shared.removeSchedule(data: self.schedules[currentIndex])
+
+    self.schedules.remove(at: currentIndex)
+    objectWillChange.send()
+  }
   //  MARK: - プライベート・非公開メソッド(Private Methods) -
   
   //  該当日付のスケジュールデータを取得

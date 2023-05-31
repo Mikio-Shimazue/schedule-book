@@ -9,6 +9,7 @@ import Foundation
 import SwiftUI
 
 class ScheduleData: Identifiable {
+  var createDate: Date = Date()
   /// 開始日時
   var startTime: Date?
   /// 予定時間（分)

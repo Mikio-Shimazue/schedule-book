@@ -48,6 +48,12 @@ class ScheduleRepository  {
     return scheduleDatas
   }
   
+  /// スケジュール削除
+  /// - Parameter id: 削除対象のスケジュールID
+  public func removeSchedule(data: ScheduleData) {
+    scheduleDataList.removeAll(where: {$0.createDate == data.createDate})
+  }
+
   //  MARK: - プライベート・非公開メソッド(Private Methods) -
   private func loadData() {
 
@@ -56,15 +62,14 @@ class ScheduleRepository  {
     scheduleData.startTime = Date()
     scheduleData.duration = oneHour
     scheduleData.information = "エンジニア　オンラインウェビナー【ChatGPTを使いこなせ！！】"
-    
-    scheduleDataList.append(scheduleData)
+    setSchedule(scheduleData: scheduleData)
     
     scheduleData = ScheduleData()
     scheduleData.startTime = Date()
     scheduleData.duration = oneHour
     scheduleData.information = "ブログ　オンラインウェビナー【ChatGPTを使いこなせ！！】"
     
-    scheduleDataList.append(scheduleData)
+    setSchedule(scheduleData: scheduleData)
   }
 
 }

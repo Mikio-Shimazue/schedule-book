@@ -80,8 +80,17 @@ struct ScheduleEditingView: View {
           .padding(.trailing)
       }
       Divider()
-
+      if 0 <= viewModel.getCurrentScheduleIndex() {
+        HStack {
+          Spacer() //
+          Button("削除"){
+            viewModel.deleteCurrentScheduleData()
+          }
+          Spacer().frame(width: 30)
+        }
+      }
       Spacer() //
+
     }
     .sheet(isPresented: $showTimePicker,
            onDismiss: {
