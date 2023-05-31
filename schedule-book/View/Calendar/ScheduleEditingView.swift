@@ -15,8 +15,10 @@ struct ScheduleEditingView: View {
   @State var duration = Double(0)
   @State var alarm = false
   @State var scheduleData = ScheduleData()
+  @State var title  = defaultTitle
+  
   private var viewModelIndex: Int = 0
-  private static let defaultTitle = "non"
+  private static let defaultTitle = "タイトル"
   private static let defaultTime = "--"
 
   init(viewModel: ObservedObject<DayDetailViewModel>, viewModelIndex: Int
@@ -27,6 +29,10 @@ struct ScheduleEditingView: View {
 
   var body: some View {
     VStack(spacing: 20) {
+      // 新規追加の場合のパディング
+      if viewModelIndex == -1 {
+        Spacer().frame(height:30)
+      }
       HStack{
         Spacer()
         Button("✔️"){
@@ -41,8 +47,18 @@ struct ScheduleEditingView: View {
         Spacer().frame(width: 30)
       }
       
-      Text(information.get3PointLeaderString(getCount: 10) ).font(.title)
+      
+//      Text( information.get3PointLeaderString(getCount: 10) ).font(.title)
 
+      VStack {
+        TextField(ScheduleEditingView.defaultTitle, text: $title)
+          .font(.title)
+      }
+      .contentShape( RoundedRectangle(cornerRadius: 0.0))
+      .onTapGesture {
+        UIApplication.shared.endEditing()
+      }
+      Divider()
       HStack {
         //  予定時刻表示部(日付）
         Text(startTime.getDateString() ).font(.callout).padding(.leading)
@@ -107,8 +123,10 @@ struct ScheduleEditingView: View {
       } else {
         viewModel.setCurrentScheduleIndex(index: -1)
       }
+      if let titleText = scheduleData.information {
+        information = titleText
+        title = titleText
       }
-      information = scheduleData.information ?? ScheduleEditingView.defaultTitle
       if let time = scheduleData.startTime {
         startTime = time
       } else if let time = viewModel.day {
@@ -128,5 +146,11 @@ struct ScheduleEditingView_Previews: PreviewProvider {
     .onAppear(){
       viewModel.setDay(date: Date())
     }
+  }
+}
+
+extension UIApplication {
+  func endEditing() {
+    sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
   }
 }

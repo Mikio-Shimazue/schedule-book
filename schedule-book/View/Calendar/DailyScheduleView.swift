@@ -57,8 +57,7 @@ struct DailyScheduleView: View {
         List(viewModel.schedules.indices, id: \.self) { index in
           NavigationLink(destination: ScheduleEditingView(viewModel: _viewModel,viewModelIndex: index).onDisappear(){
 
-          }
-          ) {
+          }) {
             ScheduleView(scheduleData: viewModel.schedules[index])
           }
         }
