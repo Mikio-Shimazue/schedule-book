@@ -1,5 +1,5 @@
 //
-//  ExtentionCalendar.swift
+//  ExtensionCalendar.swift
 //  schedule-book
 //
 //  Created by 島Work on 2023/02/14.

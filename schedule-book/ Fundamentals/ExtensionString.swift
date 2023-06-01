@@ -1,5 +1,5 @@
 //
-//  ExtentionString.swift
+//  ExtensionString.swift
 //  schedule-book
 //
 //  Created by Mikizin on 2023/05/10.
