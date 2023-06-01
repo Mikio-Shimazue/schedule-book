@@ -10,7 +10,6 @@ import SwiftUI
 struct ScheduleEditingView: View {
   @ObservedObject var viewModel: DayDetailViewModel
   @State var showTimePicker = false
-  @State var information = defaultTitle
   @State var startTime = Date()
   @State var duration = Double(0)
   @State var alarm = false
@@ -38,7 +37,7 @@ struct ScheduleEditingView: View {
         Button("✔️"){
           // 編集データを登録
           scheduleData.startTime = startTime
-          scheduleData.information = information
+          scheduleData.information = title
           scheduleData.duration = duration
           viewModel.setCurrentScheduleData(scheduleData: scheduleData)
         }
@@ -124,7 +123,6 @@ struct ScheduleEditingView: View {
         viewModel.setCurrentScheduleIndex(index: -1)
       }
       if let titleText = scheduleData.information {
-        information = titleText
         title = titleText
       }
       if let time = scheduleData.startTime {
