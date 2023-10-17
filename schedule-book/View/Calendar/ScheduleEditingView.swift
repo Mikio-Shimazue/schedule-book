@@ -56,7 +56,7 @@ struct ScheduleEditingView: View {
 
       VStack {
         TextField(ScheduleEditingView.defaultTitle, text: $title)
-          .font(.title)
+          .font(.headline)
       }
       .contentShape( RoundedRectangle(cornerRadius: 0.0))
       .onTapGesture {
@@ -94,7 +94,7 @@ struct ScheduleEditingView: View {
         Image(systemName: "alarm.waves.left.and.right")
           .resizable()
           .scaledToFit()
-          .frame(height: 26, alignment: .trailing)
+          .frame(height: 24, alignment: .trailing)
           .padding(.leading)
         Toggle("", isOn: $alarm)
           .padding(.trailing)
