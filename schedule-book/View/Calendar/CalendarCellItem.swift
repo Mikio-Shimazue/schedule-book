@@ -42,14 +42,16 @@ struct CalendarCellItem: View {
           .overlay(
             VStack {
               Text(symbol)
-                .frame(height:35, alignment: .top)
+                .frame(height:15, alignment: .top)
                 .multilineTextAlignment(.center)
                 .font(.caption)
               
               ForEach(dayViewModel.schedules) { schedule in
                 if let title = schedule.information {
-                  Text(title.get3PointLeaderString(getCount: 5))
-                    .font(.system(size:8))
+                  Text(title.get3PointLeaderString(getCount: 6))
+                    .lineLimit(1)
+                    .minimumScaleFactor(0.2)
+
                 }
               }
             },
@@ -62,8 +64,12 @@ struct CalendarCellItem: View {
 }
 
 struct CalendarCellItem_Previews: PreviewProvider {
+  @ObservedObject static var viewModel = DayDetailViewModel()
+
   static var previews: some View {
-    CalendarCellItem(color: Color(red: 0.9, green: 0.9, blue: 0.9), backgroundColor: .white)
+
+    let day = Date()
+    CalendarCellItem(day: day,color: Color(red: 0.9, green: 0.9, blue: 0.9), backgroundColor: .white)
   }
 }
 
