@@ -14,6 +14,8 @@ struct ScheduleView: View {
   let timeColor: Color = Color.rgb(red: 251, green: 238, blue: 223)
   /// 予定内容背景色
   let infoColor: Color = Color.rgb(red: 202, green: 255, blue: 246)
+  
+  let frameHeight: CGFloat = 40
 
   var body: some View {
     //  予定表示
@@ -30,7 +32,8 @@ struct ScheduleView: View {
           Text("--:--")
         }
       }
-//      .frame(width: 60, height: 60, alignment: .center)
+      .frame(height: frameHeight, alignment: .center)
+      .minimumScaleFactor(0.2)
       .background(timeColor)
 //      .padding(.leading,3)
 
@@ -40,17 +43,18 @@ struct ScheduleView: View {
         Text(scheduleData.information ?? "")
 //          .frame(width:250, height:20,alignment: .leading)
           .padding(.leading, 10)
-
+          .minimumScaleFactor(0.2)
+          .frame(maxWidth: .infinity, alignment: .leading)
         Image(systemName: "alarm.waves.left.and.right")
           .frame(height: 10, alignment: .trailing)
           .padding(.trailing, 10)
       }
-      .frame(height: 60, alignment: .center)
+      .frame(height: frameHeight, alignment: .center)
       .background(infoColor)
 
       Spacer() //  右側にスペーサー入れると左寄せになる
     }
-    .frame(height: 60, alignment: .leading)
+    .frame(height: frameHeight, alignment: .leading)
   }
 }
 
