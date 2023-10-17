@@ -68,6 +68,7 @@ class ScheduleRepository  {
     scheduleData.startTime = Date()
     scheduleData.duration = oneHour
     scheduleData.information = "ブログ　オンラインウェビナー【ChatGPTを使いこなせ！！】"
+    scheduleData.alarm = Date()
     
     setSchedule(scheduleData: scheduleData)
   }

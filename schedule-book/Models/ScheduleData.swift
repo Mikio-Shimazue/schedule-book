@@ -21,10 +21,11 @@ class ScheduleData: Identifiable {
   /// 文字色（デフォルト：黒）
   var color: Color = Color.black
   
-  init(startTime: Date? = nil, duration: Double? = nil, information: String? = nil) {
+  init(startTime: Date? = nil, duration: Double? = nil, information: String? = nil, alarm: Date? = nil) {
     self.startTime = startTime
     self.duration = duration
     self.information = information
+    self.alarm = alarm
   }
   
 
@@ -41,4 +42,7 @@ class ScheduleData: Identifiable {
     return nil
   }
 
+  func getAlarmTime() -> Date? {
+    return alarm
+  }
 }

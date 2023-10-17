@@ -39,6 +39,11 @@ struct ScheduleEditingView: View {
           scheduleData.startTime = startTime
           scheduleData.information = title
           scheduleData.duration = duration
+          if alarm {
+            scheduleData.alarm = startTime
+          } else {
+            scheduleData.alarm = nil
+          }
           viewModel.setCurrentScheduleData(scheduleData: scheduleData)
         }
         .foregroundColor(.white)
@@ -129,6 +134,11 @@ struct ScheduleEditingView: View {
         startTime = time
       } else if let time = viewModel.day {
         startTime = time
+      }
+      if let alarmTime = scheduleData.alarm {
+        alarm = true
+      } else {
+        alarm = false
       }
       duration = scheduleData.duration ?? 0
     }

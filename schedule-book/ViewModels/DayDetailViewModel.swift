@@ -52,7 +52,8 @@ class DayDetailViewModel: ObservableObject {
     let newScheduleData = ScheduleData(
       startTime: scheduleData.startTime,
       duration: scheduleData.duration,
-      information: scheduleData.information)
+      information: scheduleData.information,
+      alarm: scheduleData.alarm)
     
     if 0 <= currentIndex {
       self.schedules[currentIndex] = newScheduleData
