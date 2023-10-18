@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		8B0EBEDE29F00268001EC038 /* ScheduleData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B0EBEDD29F00268001EC038 /* ScheduleData.swift */; };
+		8B0EBEDE29F00268001EC038 /* Schedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B0EBEDD29F00268001EC038 /* Schedule.swift */; };
 		8B1B4E7229F3626700C2BDF5 /* ExtensionColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B1B4E7129F3626700C2BDF5 /* ExtensionColor.swift */; };
 		8B2A2F8029E6C89400D92C52 /* ScheduleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B2A2F7F29E6C89400D92C52 /* ScheduleView.swift */; };
 		8B4FD24C299B8E2D00ABBB41 /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B4FD24B299B8E2D00ABBB41 /* CalendarView.swift */; };
@@ -27,7 +27,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		8B0EBEDD29F00268001EC038 /* ScheduleData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleData.swift; sourceTree = "<group>"; };
+		8B0EBEDD29F00268001EC038 /* Schedule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Schedule.swift; sourceTree = "<group>"; };
 		8B1B4E7129F3626700C2BDF5 /* ExtensionColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionColor.swift; sourceTree = "<group>"; };
 		8B2A2F7F29E6C89400D92C52 /* ScheduleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleView.swift; sourceTree = "<group>"; };
 		8B4FD24B299B8E2D00ABBB41 /* CalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarView.swift; sourceTree = "<group>"; };
@@ -69,7 +69,7 @@
 		8B0EBEDC29F001EA001EC038 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				8B0EBEDD29F00268001EC038 /* ScheduleData.swift */,
+				8B0EBEDD29F00268001EC038 /* Schedule.swift */,
 				8B734B8929F28A4800FD9C93 /* ScheduleRepository.swift */,
 			);
 			path = Models;
@@ -227,7 +227,7 @@
 				8B7F33DD29F00BC1006761CB /* ExtensionDate.swift in Sources */,
 				8BEF6995299A5C3C00901C05 /* schedule_bookApp.swift in Sources */,
 				8B734B8F29F29DB000FD9C93 /* CalendarViewModel.swift in Sources */,
-				8B0EBEDE29F00268001EC038 /* ScheduleData.swift in Sources */,
+				8B0EBEDE29F00268001EC038 /* Schedule.swift in Sources */,
 				8B734B8A29F28A4800FD9C93 /* ScheduleRepository.swift in Sources */,
 				8BD34F4C29E419EE00C80B93 /* DailyScheduleView.swift in Sources */,
 				8B4FD24F299B8F8C00ABBB41 /* ExtensionCalendar.swift in Sources */,

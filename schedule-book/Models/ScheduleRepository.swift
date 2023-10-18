@@ -17,7 +17,7 @@ class ScheduleRepository  {
   //  MARK: - プライベート変数(Private Properties) -
   
   /// スケジュールデータ
-  private var scheduleDataList: [ScheduleData] = []
+  private var scheduleDataList: [Schedule] = []
   /// 1時間(秒)
   private let oneHour = Double(60 * 60)
   
@@ -29,15 +29,15 @@ class ScheduleRepository  {
 
   /// スケジュールの登録
   /// - Parameter schedule: 登録するスケジュール
-  public func setSchedule(scheduleData: ScheduleData) {
+  public func setSchedule(scheduleData: Schedule) {
     scheduleDataList.append(scheduleData)
   }
   
   /// スケジュールの取得
   /// - Parameter date: 取得対象の日付
   /// - Returns: dateで指定された日のスケジュール
-  public func getSchedule(_ date: Date) -> [ScheduleData]? {
-    var scheduleDatas: [ScheduleData] = []
+  public func getSchedule(_ date: Date) -> [Schedule]? {
+    var scheduleDatas: [Schedule] = []
     
     for schedule in scheduleDataList {
       if let startTime = schedule.startTime,
@@ -50,21 +50,21 @@ class ScheduleRepository  {
   
   /// スケジュール削除
   /// - Parameter id: 削除対象のスケジュールID
-  public func removeSchedule(data: ScheduleData) {
+  public func removeSchedule(data: Schedule) {
     scheduleDataList.removeAll(where: {$0.createDate == data.createDate})
   }
 
   //  MARK: - プライベート・非公開メソッド(Private Methods) -
   private func loadData() {
 
-    var scheduleData = ScheduleData()
+    var scheduleData = Schedule()
     
     scheduleData.startTime = Date()
     scheduleData.duration = oneHour
     scheduleData.information = "エンジニア　オンラインウェビナー【ChatGPTを使いこなせ！！】"
     setSchedule(scheduleData: scheduleData)
     
-    scheduleData = ScheduleData()
+    scheduleData = Schedule()
     scheduleData.startTime = Date()
     scheduleData.duration = oneHour
     scheduleData.information = "ブログ　オンラインウェビナー【ChatGPTを使いこなせ！！】"

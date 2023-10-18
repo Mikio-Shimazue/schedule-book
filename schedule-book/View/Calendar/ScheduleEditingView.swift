@@ -13,7 +13,7 @@ struct ScheduleEditingView: View {
   @State var startTime = Date()
   @State var duration = Double(0)
   @State var alarm = false
-  @State var scheduleData = ScheduleData()
+  @State var scheduleData = Schedule()
   @State var title  = defaultTitle
   
   private var viewModelIndex: Int = 0
@@ -44,7 +44,7 @@ struct ScheduleEditingView: View {
           } else {
             scheduleData.alarm = nil
           }
-          viewModel.setCurrentScheduleData(scheduleData: scheduleData)
+          viewModel.setCurrentSchedule(scheduleData: scheduleData)
         }
         .foregroundColor(.white)
         
@@ -104,7 +104,7 @@ struct ScheduleEditingView: View {
         HStack {
           Spacer() //
           Button("削除"){
-            viewModel.deleteCurrentScheduleData()
+            viewModel.deleteCurrentSchedule()
           }
           Spacer().frame(width: 30)
         }

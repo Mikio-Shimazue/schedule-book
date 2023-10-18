@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ScheduleView: View {
-  var scheduleData: ScheduleData
+  var scheduleData: Schedule
 
   /// 時刻部背景色
   let timeColor: Color = Color.rgb(red: 251, green: 238, blue: 223)
@@ -59,7 +59,7 @@ struct ScheduleView: View {
 }
 
 struct ScheduleView_Previews: PreviewProvider {
-  static var scheduleData =  ScheduleData(startTime:Date(),information: "SwiftUI マスターしよう")
+  static var scheduleData =  Schedule(startTime:Date(),information: "SwiftUI マスターしよう")
 
   static var previews: some View {
     ScheduleView(scheduleData: scheduleData)

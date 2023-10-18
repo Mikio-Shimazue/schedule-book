@@ -10,14 +10,14 @@ import Foundation
 
 /// 日付詳細ViewModel
 class DayDetailViewModel: ObservableObject {
-  @Published var schedules:[ScheduleData]
+  @Published var schedules:[Schedule]
 
   var day: Date?
   /// objectWillChange.sendすることでデータの更新を通知できる
   private(set) var objectWillChange = ObservableObjectPublisher()
   private var currentIndex: Int = -1
   
-  init(schedules: [ScheduleData] = [ScheduleData]()) {
+  init(schedules: [Schedule] = [Schedule]()) {
     self.schedules = schedules
   }
   
@@ -40,7 +40,7 @@ class DayDetailViewModel: ObservableObject {
 
   /// カレントスケジュールを取得
   /// - Returns: カレントスケジュール
-  func getCurrentSchedule() -> ScheduleData {
+  func getCurrentSchedule() -> Schedule {
     return self.schedules[currentIndex]
   }
   
@@ -48,18 +48,18 @@ class DayDetailViewModel: ObservableObject {
   /// カレントスケジュールを書き替える
   /// カレント未指定の場合は新規登録
   /// - Parameter scheduleData: 新しいスケシュールデータ
-  func setCurrentScheduleData(scheduleData: ScheduleData) {
-    let newScheduleData = ScheduleData(
+  func setCurrentSchedule(scheduleData: Schedule) {
+    let newSchedule = Schedule(
       startTime: scheduleData.startTime,
       duration: scheduleData.duration,
       information: scheduleData.information,
       alarm: scheduleData.alarm)
     
     if 0 <= currentIndex {
-      self.schedules[currentIndex] = newScheduleData
+      self.schedules[currentIndex] = newSchedule
     } else {
-      ScheduleRepository.shared.setSchedule(scheduleData: newScheduleData)
-      setDay(date:newScheduleData.startTime!)
+      ScheduleRepository.shared.setSchedule(scheduleData: newSchedule)
+      setDay(date:newSchedule.startTime!)
     }
     objectWillChange.send()
   }
@@ -67,17 +67,17 @@ class DayDetailViewModel: ObservableObject {
   /// カレントスケジュールを新しい開始時刻に書き替える
   /// - Parameter startTime: 新しい開始時刻
   func setCurrentScheduleStartDate(startTime: Date) {
-    let newScheduleData = ScheduleData(
+    let newSchedule = Schedule(
       startTime: startTime,
       duration: getCurrentSchedule().duration,
       information: getCurrentSchedule().information)
       
-    self.schedules[currentIndex] = newScheduleData
+    self.schedules[currentIndex] = newSchedule
     objectWillChange.send()
   }
   
   /// カレントインデックスデータを削除
-  func deleteCurrentScheduleData() {
+  func deleteCurrentSchedule() {
     ScheduleRepository.shared.removeSchedule(data: self.schedules[currentIndex])
 
     self.schedules.remove(at: currentIndex)

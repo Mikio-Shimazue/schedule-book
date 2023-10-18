@@ -1,5 +1,5 @@
 //
-//  ScheduleData.swift
+//  Schedule.swift
 //  schedule-book
 //
 //  Created by Mikizin on 2023/04/19.
@@ -8,7 +8,7 @@
 import Foundation
 import SwiftUI
 
-class ScheduleData: Identifiable {
+class Schedule: Identifiable {
   var createDate: Date = Date()
   /// 開始日時
   var startTime: Date?

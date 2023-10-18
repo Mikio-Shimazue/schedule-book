@@ -12,9 +12,9 @@ import Foundation
 class CalendarViewModel: ObservableObject {
   /// objectWillChange.sendすることでデータの更新を通知できる
   private(set) var objectWillChange = ObservableObjectPublisher()
-  @Published var schedules:[ScheduleData]
+  @Published var schedules:[Schedule]
   
-  init(schedules: [ScheduleData] = [ScheduleData]()) {
+  init(schedules: [Schedule] = [Schedule]()) {
     self.schedules = schedules
     getSchedule(date: Date())
   }
