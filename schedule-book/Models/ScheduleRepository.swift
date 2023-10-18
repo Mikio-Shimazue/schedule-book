@@ -53,6 +53,20 @@ class ScheduleRepository  {
   public func removeSchedule(data: Schedule) {
     scheduleDataList.removeAll(where: {$0.createDate == data.createDate})
   }
+  
+  public func saveData() {
+    var scheduleListData = ScheduleListData()
+    for schedule in scheduleDataList {
+      scheduleListData.schedules?.append(schedule.schedule)
+    }
+    if 0 >= scheduleListData.schedules?.count ?? 0  {
+      return
+    }
+        
+    if let jsonData = try? JSONEncoder().encode(scheduleListData) {
+      UserDefaults.standard.set(jsonData, forKey: "Schedules")
+    }
+  }
 
   //  MARK: - プライベート・非公開メソッド(Private Methods) -
   private func loadData() {
