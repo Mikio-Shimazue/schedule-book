@@ -20,10 +20,12 @@
 		8B850C6F29F3A4CD00557B3A /* DayDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B850C6E29F3A4CD00557B3A /* DayDetailViewModel.swift */; };
 		8B8AEE2E29E0189F002AAD0D /* CalendarCellItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B8AEE2D29E0189F002AAD0D /* CalendarCellItem.swift */; };
 		8BD34F4C29E419EE00C80B93 /* DailyScheduleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BD34F4B29E419EE00C80B93 /* DailyScheduleView.swift */; };
+		8BE222CD2AE12C2800BE8994 /* ScheduleNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BE222CC2AE12C2800BE8994 /* ScheduleNotification.swift */; };
 		8BEF6995299A5C3C00901C05 /* schedule_bookApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BEF6994299A5C3C00901C05 /* schedule_bookApp.swift */; };
 		8BEF6999299A5C3D00901C05 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8BEF6998299A5C3D00901C05 /* Assets.xcassets */; };
 		8BEF699C299A5C3D00901C05 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8BEF699B299A5C3D00901C05 /* Preview Assets.xcassets */; };
 		8BF0B86929FA77CF00ADB4FB /* TimePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF0B86829FA77CF00ADB4FB /* TimePickerView.swift */; };
+		8BFDC6272AE27A0B00339E70 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BFDC6262AE27A0B00339E70 /* AppDelegate.swift */; };
 		8BFF99B22A0BA1ED0050E4EF /* ExtensionString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BFF99B12A0BA1ED0050E4EF /* ExtensionString.swift */; };
 /* End PBXBuildFile section */
 
@@ -41,11 +43,13 @@
 		8B850C6E29F3A4CD00557B3A /* DayDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayDetailViewModel.swift; sourceTree = "<group>"; };
 		8B8AEE2D29E0189F002AAD0D /* CalendarCellItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarCellItem.swift; sourceTree = "<group>"; };
 		8BD34F4B29E419EE00C80B93 /* DailyScheduleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyScheduleView.swift; sourceTree = "<group>"; };
+		8BE222CC2AE12C2800BE8994 /* ScheduleNotification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleNotification.swift; sourceTree = "<group>"; };
 		8BEF6991299A5C3C00901C05 /* schedule-book.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "schedule-book.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8BEF6994299A5C3C00901C05 /* schedule_bookApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = schedule_bookApp.swift; sourceTree = "<group>"; };
 		8BEF6998299A5C3D00901C05 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8BEF699B299A5C3D00901C05 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		8BF0B86829FA77CF00ADB4FB /* TimePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimePickerView.swift; sourceTree = "<group>"; };
+		8BFDC6262AE27A0B00339E70 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8BFF99B12A0BA1ED0050E4EF /* ExtensionString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionString.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -74,6 +78,7 @@
 				8B0EBEDD29F00268001EC038 /* Schedule.swift */,
 				8B734B8929F28A4800FD9C93 /* ScheduleRepository.swift */,
 				8B3598C42ADFE6C50088F6D8 /* ScheduleDataList.swift */,
+				8BE222CC2AE12C2800BE8994 /* ScheduleNotification.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -133,6 +138,7 @@
 			children = (
 				8B1B4E6E29F3602300C2BDF5 /*  Fundamentals */,
 				8BEF6994299A5C3C00901C05 /* schedule_bookApp.swift */,
+				8BFDC6262AE27A0B00339E70 /* AppDelegate.swift */,
 				8B0EBEDC29F001EA001EC038 /* Models */,
 				8B0EBEDB29F001BE001EC038 /* View */,
 				8B734B8B29F29C3E00FD9C93 /* ViewModels */,
@@ -227,10 +233,12 @@
 				8B3598C52ADFE6C50088F6D8 /* ScheduleDataList.swift in Sources */,
 				8BFF99B22A0BA1ED0050E4EF /* ExtensionString.swift in Sources */,
 				8B2A2F8029E6C89400D92C52 /* ScheduleView.swift in Sources */,
+				8BE222CD2AE12C2800BE8994 /* ScheduleNotification.swift in Sources */,
 				8B8AEE2E29E0189F002AAD0D /* CalendarCellItem.swift in Sources */,
 				8B7F33DD29F00BC1006761CB /* ExtensionDate.swift in Sources */,
 				8BEF6995299A5C3C00901C05 /* schedule_bookApp.swift in Sources */,
 				8B734B8F29F29DB000FD9C93 /* CalendarViewModel.swift in Sources */,
+				8BFDC6272AE27A0B00339E70 /* AppDelegate.swift in Sources */,
 				8B0EBEDE29F00268001EC038 /* Schedule.swift in Sources */,
 				8B734B8A29F28A4800FD9C93 /* ScheduleRepository.swift in Sources */,
 				8BD34F4C29E419EE00C80B93 /* DailyScheduleView.swift in Sources */,
