@@ -1,5 +1,5 @@
 //
-//  ScheduleDataList.swift
+//  ScheduleData.swift
 //  schedule-book
 //
 //  Created by Mikizin on 2023/10/18.
