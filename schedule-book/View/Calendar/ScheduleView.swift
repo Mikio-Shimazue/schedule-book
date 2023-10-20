@@ -45,9 +45,15 @@ struct ScheduleView: View {
           .padding(.leading, 10)
           .minimumScaleFactor(0.2)
           .frame(maxWidth: .infinity, alignment: .leading)
-        Image(systemName: "alarm.waves.left.and.right")
-          .frame(height: 10, alignment: .trailing)
-          .padding(.trailing, 10)
+        if (scheduleData.alarm != nil) {
+          Image(systemName: "alarm.waves.left.and.right")
+            .padding(.trailing, 10)
+            .font(.system(size:12, weight: .light))
+        } else {
+          Spacer()
+            .frame(width: 40)
+            .background(timeColor)
+        }
       }
       .frame(height: frameHeight, alignment: .center)
       .background(infoColor)
@@ -59,7 +65,7 @@ struct ScheduleView: View {
 }
 
 struct ScheduleView_Previews: PreviewProvider {
-  static var scheduleData =  Schedule(startTime:Date(),information: "SwiftUI マスターしよう")
+  static var scheduleData =  Schedule(startTime:Date(),information: "SwiftUI マスターしよう", alarm: Date())
 
   static var previews: some View {
     ScheduleView(scheduleData: scheduleData)

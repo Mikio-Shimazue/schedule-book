@@ -9,10 +9,11 @@ import SwiftUI
 
 @main
 struct schedule_bookApp: App {
-    var body: some Scene {
-        WindowGroup {
-          //  ContentView()
-        CalendarView()
-        }
+  @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
+  var body: some Scene {
+    WindowGroup {
+      //  ContentView()
+      CalendarView()
     }
+  }
 }
