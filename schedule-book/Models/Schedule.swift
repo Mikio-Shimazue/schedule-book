@@ -14,7 +14,7 @@ class Schedule: Identifiable {
 
   public var createDate: Date? {
     set(value){
-      schedule.startTime = value
+      schedule.createDate = value
     }
     get {
       return schedule.createDate
@@ -68,7 +68,7 @@ class Schedule: Identifiable {
   }
   */
   init(startTime: Date? = nil, duration: Double? = nil, information: String? = nil, alarm: Date? = nil) {
-    createDate = Date()
+    self.createDate = Date()
     self.startTime = startTime
     self.duration = duration
     self.information = information
