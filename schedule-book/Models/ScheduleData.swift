@@ -8,7 +8,7 @@
 import Foundation
 
 struct ScheduleListData: Codable {
-  var schedules: [ScheduleData]?
+  var schedules: [ScheduleData?] = []
 }
 
 struct ScheduleData: Codable {

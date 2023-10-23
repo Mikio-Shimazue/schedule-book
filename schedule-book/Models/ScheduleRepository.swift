@@ -57,25 +57,44 @@ class ScheduleRepository  {
   public func saveData() {
     var scheduleListData = ScheduleListData()
     for schedule in scheduleDataList {
-      scheduleListData.schedules?.append(schedule.schedule)
+      scheduleListData.schedules.append(schedule.schedule)
     }
-    if 0 >= scheduleListData.schedules?.count ?? 0  {
+    if 0 >= scheduleListData.schedules.count ?? 0  {
       return
     }
         
-    if let jsonData = try? JSONEncoder().encode(scheduleListData) {
+    //  JSONから変換
+    let encoder = JSONEncoder()
+    encoder.dateEncodingStrategy = .iso8601 // Dateフォーマット指定
+
+    if let jsonData = try? encoder.encode(scheduleListData) {
       UserDefaults.standard.set(jsonData, forKey: "Schedules")
     }
   }
 
   //  MARK: - プライベート・非公開メソッド(Private Methods) -
   private func loadData() {
-    /*
-    let schedulesJsonData = UserDefaults.standard.object(forKey: "Schedules")
+    guard let schedulesJsonData = UserDefaults.standard.object(forKey: "Schedules") as? Data else {
+      makeSampleScheduleData()
+      saveData()
+      return
+    }
+        
+    //  JSONから変換
+    let decoder = JSONDecoder()
+    decoder.dateDecodingStrategy = .iso8601 // Dateフォーマット指定
+    guard let scheduleList: ScheduleListData = try? decoder.decode(ScheduleListData.self, from: schedulesJsonData) else {
+      fatalError("Failed to decode from JSON.")
+    }
     
-    let jsonData = String(schedulesJsonData).data(using: .utf8)!
-    let scheduleList = JSONDecoder().decode(ScheduleListData.self, from: jsonData)
-     */
+    for schedule in scheduleList.schedules {
+      var scheduleData = Schedule()
+      scheduleData.createDate = schedule?.createDate
+      scheduleData.startTime = schedule?.startTime
+      scheduleData.duration = schedule?.duration
+      scheduleData.information = schedule?.information
+      setSchedule(scheduleData: scheduleData)
+    }
   }
   
   
