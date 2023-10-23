@@ -70,7 +70,17 @@ class ScheduleRepository  {
 
   //  MARK: - プライベート・非公開メソッド(Private Methods) -
   private func loadData() {
-
+    /*
+    let schedulesJsonData = UserDefaults.standard.object(forKey: "Schedules")
+    
+    let jsonData = String(schedulesJsonData).data(using: .utf8)!
+    let scheduleList = JSONDecoder().decode(ScheduleListData.self, from: jsonData)
+     */
+  }
+  
+  
+  /// テスト用スケジュールデータ登録処理
+  private func makeSampleScheduleData() {
     var scheduleData = Schedule()
     
     scheduleData.startTime = Date()
