@@ -66,7 +66,7 @@ struct DailyScheduleView: View {
     }
     .sheet(isPresented: $isAddSchedule,
            onDismiss: {
-      // sheetで表示したViewを閉時時の処理が必要な場合はここに記述
+      // sheetで表示したViewを閉時の処理が必要な場合はここに記述
     }) {
       ScheduleEditingView(viewModel: _viewModel,viewModelIndex: -1)
     }
