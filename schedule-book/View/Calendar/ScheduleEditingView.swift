@@ -15,6 +15,7 @@ struct ScheduleEditingView: View {
   @State var alarm = false
   @State var scheduleData = Schedule()
   @State var title  = defaultTitle
+  @Environment(\.presentationMode) var presentation
   
   private var viewModelIndex: Int = 0
   private static let defaultTitle = "タイトル"
@@ -104,7 +105,8 @@ struct ScheduleEditingView: View {
         HStack {
           Spacer() //
           Button("削除"){
-            viewModel.deleteCurrentSchedule()
+              viewModel.deleteCurrentSchedule()
+              presentation.wrappedValue.dismiss()
           }
           Spacer().frame(width: 30)
         }
@@ -141,6 +143,19 @@ struct ScheduleEditingView: View {
         alarm = false
       }
       duration = scheduleData.duration ?? 0
+    }
+    .navigationTitle("Second View")
+    .navigationBarBackButtonHidden(true)
+    .toolbar {
+      ToolbarItem( placement: .navigationBarLeading){
+        Button(
+          action:{
+            presentation.wrappedValue.dismiss()
+          } , label: {
+            Image(systemName: "arrow.backward")
+          }
+        ).tint(.orange)
+      }
     }
   }
 }
