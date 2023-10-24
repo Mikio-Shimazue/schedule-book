@@ -20,7 +20,9 @@ class ScheduleRepository  {
   private var scheduleDataList: [Schedule] = []
   /// 1時間(秒)
   private let oneHour = Double(60 * 60)
-  
+  /// UserDefaults.standard. バックアップ用キー
+  private let userDefaultKey: String = "Schedules"
+
   init(){
     loadData()
   }
@@ -31,6 +33,7 @@ class ScheduleRepository  {
   /// - Parameter schedule: 登録するスケジュール
   public func setSchedule(scheduleData: Schedule) {
     scheduleDataList.append(scheduleData)
+    saveData()
   }
   
   /// スケジュールの取得
@@ -52,14 +55,17 @@ class ScheduleRepository  {
   /// - Parameter id: 削除対象のスケジュールID
   public func removeSchedule(data: Schedule) {
     scheduleDataList.removeAll(where: {$0.createDate == data.createDate})
+    saveData()
   }
   
+  ///  スケジュールデータをUserDefaultsバックアップ
   public func saveData() {
     var scheduleListData = ScheduleListData()
     for schedule in scheduleDataList {
       scheduleListData.schedules.append(schedule.schedule)
     }
     if 0 >= scheduleListData.schedules.count ?? 0  {
+      UserDefaults.standard.removeObject(forKey: userDefaultKey)
       return
     }
         
@@ -68,13 +74,15 @@ class ScheduleRepository  {
     encoder.dateEncodingStrategy = .iso8601 // Dateフォーマット指定
 
     if let jsonData = try? encoder.encode(scheduleListData) {
-      UserDefaults.standard.set(jsonData, forKey: "Schedules")
+      UserDefaults.standard.set(jsonData, forKey: userDefaultKey)
     }
   }
 
   //  MARK: - プライベート・非公開メソッド(Private Methods) -
   private func loadData() {
-    guard let schedulesJsonData = UserDefaults.standard.object(forKey: "Schedules") as? Data else {
+    guard let schedulesJsonData = UserDefaults.standard.object(forKey: userDefaultKey) as? Data else {
+      
+      //  TODO: テスト用データの読み込み処理　リリース時は消去
       makeSampleScheduleData()
       saveData()
       return
@@ -102,7 +110,7 @@ class ScheduleRepository  {
   private func makeSampleScheduleData() {
     var scheduleData = Schedule()
     
-    scheduleData.startTime = Date()
+    scheduleData.startTime = Date(timeIntervalSinceNow: 1)
     scheduleData.duration = oneHour
     scheduleData.information = "エンジニア　オンラインウェビナー【ChatGPTを使いこなせ！！】"
     setSchedule(scheduleData: scheduleData)
