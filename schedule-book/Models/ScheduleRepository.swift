@@ -36,6 +36,10 @@ class ScheduleRepository  {
     saveData()
   }
   
+  public func updateSchedule(index: Int,newScheduleData: Schedule) {
+    scheduleDataList[index] = newScheduleData
+    saveData()
+  }
   /// スケジュールの取得
   /// - Parameter date: 取得対象の日付
   /// - Returns: dateで指定された日のスケジュール

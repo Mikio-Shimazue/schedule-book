@@ -60,6 +60,7 @@ class DayDetailViewModel: ObservableObject {
     }
     if 0 <= currentIndex {
       self.schedules[currentIndex] = newSchedule
+      ScheduleRepository.shared.updateSchedule(index: currentIndex, newScheduleData: newSchedule)
     } else {
       ScheduleRepository.shared.setSchedule(scheduleData: newSchedule)
       setDay(date:newSchedule.startTime!)
@@ -98,5 +99,16 @@ class DayDetailViewModel: ObservableObject {
       }
       objectWillChange.send()
     }
+  }
+  
+  /// スケジュールを追加登録
+  /// - Parameter schedule: <#schedule description#>
+  private func insert(schedule: Schedule){
+    
+  }
+  /// カレントスケジュールを更新
+  /// - Parameter schedule: <#schedule description#>
+  private func update(schedule: Schedule){
+    
   }
 }
