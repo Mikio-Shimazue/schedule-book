@@ -68,6 +68,9 @@ class ScheduleRepository  {
     for schedule in scheduleDataList {
       scheduleListData.schedules.append(schedule.schedule)
     }
+ 
+    updateNotification()
+  
     if 0 >= scheduleListData.schedules.count ?? 0  {
       UserDefaults.standard.removeObject(forKey: userDefaultKey)
       return
@@ -109,7 +112,16 @@ class ScheduleRepository  {
     }
   }
   
-  
+  private func updateNotification() {
+    for schedule in scheduleDataList {
+      ScheduleNotification().deleteNotification(date: Date())
+    }
+    for schedule in scheduleDataList {
+      if let alarmDate = schedule.alarm {
+        ScheduleNotification().setScheduleNotification(date: alarmDate)
+      }
+    }
+  }
   /// テスト用スケジュールデータ登録処理
   private func makeSampleScheduleData() {
     var scheduleData = Schedule()

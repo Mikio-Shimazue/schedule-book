@@ -53,4 +53,17 @@ class ScheduleNotification {
       }
     }
   }
+  
+  func deleteNotification(date: Date) {
+    // 登録通知を確認
+    UNUserNotificationCenter.current().getPendingNotificationRequests {
+      print("DELETE before :Pending requests : ", $0)
+    }
+    UNUserNotificationCenter.current().removePendingNotificationRequests(withIdentifiers: [UUID().uuidString])
+    
+    // 登録通知を確認
+    UNUserNotificationCenter.current().getPendingNotificationRequests {
+      print("DELETE after :Pending requests : ", $0)
+    }
+  }
 }

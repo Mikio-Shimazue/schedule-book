@@ -55,9 +55,7 @@ class DayDetailViewModel: ObservableObject {
       information: scheduleData.information,
       alarm: scheduleData.alarm)
     
-    if let alarmData = newSchedule.startTime {
-      ScheduleNotification().setScheduleNotification(date: alarmData)
-    }
+
     if 0 <= currentIndex {
       self.schedules[currentIndex] = newSchedule
       ScheduleRepository.shared.updateSchedule(index: currentIndex, newScheduleData: newSchedule)
