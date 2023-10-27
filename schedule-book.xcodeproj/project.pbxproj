@@ -13,6 +13,7 @@
 		8B4FD24C299B8E2D00ABBB41 /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B4FD24B299B8E2D00ABBB41 /* CalendarView.swift */; };
 		8B4FD24F299B8F8C00ABBB41 /* ExtentionCalendar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B4FD24E299B8F8C00ABBB41 /* ExtentionCalendar.swift */; };
 		8B7F0B7329B6921F00C44C8B /* CheckString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7F0B7229B6921F00C44C8B /* CheckString.swift */; };
+		8BAF684A2AEC6313006E1134 /* DailyScheduleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BAF68492AEC6313006E1134 /* DailyScheduleView.swift */; };
 		8BBFDD9D29AD4FF50034F6C1 /* CheckEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BBFDD9C29AD4FF50034F6C1 /* CheckEnum.swift */; };
 		8BC0E70E29DF6B7300F41EF5 /* CheckDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC0E70D29DF6B7300F41EF5 /* CheckDate.swift */; };
 		8BEF6995299A5C3C00901C05 /* schedule_bookApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BEF6994299A5C3C00901C05 /* schedule_bookApp.swift */; };
@@ -28,6 +29,7 @@
 		8B4FD24B299B8E2D00ABBB41 /* CalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarView.swift; sourceTree = "<group>"; };
 		8B4FD24E299B8F8C00ABBB41 /* ExtentionCalendar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtentionCalendar.swift; sourceTree = "<group>"; };
 		8B7F0B7229B6921F00C44C8B /* CheckString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckString.swift; sourceTree = "<group>"; };
+		8BAF68492AEC6313006E1134 /* DailyScheduleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyScheduleView.swift; sourceTree = "<group>"; };
 		8BBFDD9C29AD4FF50034F6C1 /* CheckEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckEnum.swift; sourceTree = "<group>"; };
 		8BC0E70D29DF6B7300F41EF5 /* CheckDate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckDate.swift; sourceTree = "<group>"; };
 		8BEF6991299A5C3C00901C05 /* schedule-book.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "schedule-book.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -87,6 +89,7 @@
 				8BBFDD9C29AD4FF50034F6C1 /* CheckEnum.swift */,
 				8BC0E70D29DF6B7300F41EF5 /* CheckDate.swift */,
 				8B46898529F8654100EF8CD6 /* checkJsonData.swift */,
+				8BAF68492AEC6313006E1134 /* DailyScheduleView.swift */,
 			);
 			path = "schedule-book";
 			sourceTree = "<group>";
@@ -169,6 +172,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8BAF684A2AEC6313006E1134 /* DailyScheduleView.swift in Sources */,
 				8BEF6997299A5C3C00901C05 /* ContentView.swift in Sources */,
 				8B7F0B7329B6921F00C44C8B /* CheckString.swift in Sources */,
 				8B46898629F8654100EF8CD6 /* checkJsonData.swift in Sources */,
