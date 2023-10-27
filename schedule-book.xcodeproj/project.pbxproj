@@ -81,6 +81,7 @@
 				8BEF6994299A5C3C00901C05 /* schedule_bookApp.swift */,
 				8BEF6996299A5C3C00901C05 /* ContentView.swift */,
 				8B4FD24B299B8E2D00ABBB41 /* CalendarView.swift */,
+				8BAF68492AEC6313006E1134 /* DailyScheduleView.swift */,
 				8BEF6998299A5C3D00901C05 /* Assets.xcassets */,
 				8BEF699A299A5C3D00901C05 /* Preview Content */,
 				8B3DB08329AB1743009D5E09 /* CodeCheck.swift */,
@@ -89,7 +90,6 @@
 				8BBFDD9C29AD4FF50034F6C1 /* CheckEnum.swift */,
 				8BC0E70D29DF6B7300F41EF5 /* CheckDate.swift */,
 				8B46898529F8654100EF8CD6 /* checkJsonData.swift */,
-				8BAF68492AEC6313006E1134 /* DailyScheduleView.swift */,
 			);
 			path = "schedule-book";
 			sourceTree = "<group>";

@@ -21,6 +21,8 @@ struct CalendarView: View {
   let weekdays = Calendar.current.shortWeekdaySymbols
   let columns: [GridItem] = Array(repeating: .init(.fixed(40)), count: 7)
 
+  @State private var showDayDetailsView = false
+
   var body: some View {
     VStack {
       //  yyyy/MM
@@ -39,11 +41,17 @@ struct CalendarView: View {
           if let date = calendarDates.date, let day = Calendar.current.day(for: date) {
             Text("\(day)")
               .frame(width: 40, height: 100, alignment: .top)
+              .onTapGesture {
+                showDayDetailsView = true
+              }
           }
           else {
             Text("")
           }
         }
+      }
+      .sheet(isPresented: $showDayDetailsView) {
+        DailyScheduleView(showDayDetailsView: $showDayDetailsView)
       }
     }
 //      .frame(width: 400, height: 400, alignment: .top)

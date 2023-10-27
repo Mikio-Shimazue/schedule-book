@@ -8,11 +8,19 @@
 import SwiftUI
 
 struct DailyScheduleView: View {
-    var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
-    }
+  @Binding var showDayDetailsView: Bool
+  
+  init(showDayDetailsView: Binding<Bool>) {
+    _showDayDetailsView = showDayDetailsView
+  }
+  var body: some View {
+    Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+  }
 }
-
-#Preview {
-    DailyScheduleView()
-}
+/*
+ #Preview {
+ @State var showDayDetailsView = false
+ 
+ DailyScheduleView(showDayDetailsView: $showDayDetailsView)
+ }
+ */
