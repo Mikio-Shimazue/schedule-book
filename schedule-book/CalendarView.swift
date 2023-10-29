@@ -12,6 +12,11 @@ struct DateInfo: Identifiable {
   var date: Date?
 }
 
+class SharedDataDailyScheduleView: ObservableObject {
+  @Published var showDayDetailsView = false
+  @Published var textDay = ""
+}
+
 struct CalendarView: View {
   let year = Calendar.current.year(for: Date()) ?? 2023
   let month = Calendar.current.month(for: Date()
@@ -21,8 +26,8 @@ struct CalendarView: View {
   let weekdays = Calendar.current.shortWeekdaySymbols
   let columns: [GridItem] = Array(repeating: .init(.fixed(40)), count: 7)
 
-  @State private var showDayDetailsView = false
-
+  @ObservedObject var sharedData: SharedDataDailyScheduleView = SharedDataDailyScheduleView()
+  
   var body: some View {
     VStack {
       //  yyyy/MM
@@ -42,7 +47,8 @@ struct CalendarView: View {
             Text("\(day)")
               .frame(width: 40, height: 100, alignment: .top)
               .onTapGesture {
-                showDayDetailsView = true
+                self.sharedData.textDay = String(day)
+                self.sharedData.showDayDetailsView = true
               }
           }
           else {
@@ -50,8 +56,8 @@ struct CalendarView: View {
           }
         }
       }
-      .sheet(isPresented: $showDayDetailsView) {
-        DailyScheduleView(showDayDetailsView: $showDayDetailsView)
+      .sheet(isPresented: $sharedData.showDayDetailsView) {
+        DailyScheduleView(sharedData: sharedData)
       }
     }
 //      .frame(width: 400, height: 400, alignment: .top)
