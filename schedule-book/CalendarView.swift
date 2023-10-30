@@ -21,8 +21,7 @@ struct CalendarView: View {
   let year = Calendar.current.year(for: Date()) ?? 2023
   let month = Calendar.current.month(for: Date()
   ) ?? 1
-  let calendarDates = createCalendarDates(Date()
-  )
+//  let calendarDates = createCalendarDates(Date())
   let weekdays = Calendar.current.shortWeekdaySymbols
   let columns: [GridItem] = Array(repeating: .init(.fixed(40)), count: 7)
 
@@ -30,10 +29,12 @@ struct CalendarView: View {
   
   var body: some View {
     VStack {
+      Text("SecondViewへ")
+      /*
+
       //  yyyy/MM
       Text(String(format: "%4d年%2d月", year, month))
         .font(.system(size: 20))
-        
       //  曜日
       HStack {
         ForEach(weekdays, id: \.self) { weekday in
@@ -47,7 +48,7 @@ struct CalendarView: View {
             Text("\(day)")
               .frame(width: 40, height: 100, alignment: .top)
               .onTapGesture {
-                self.sharedData.textDay = String(day)
+                self.sharedData.textDay = String("\(month)/\(day)")
                 self.sharedData.showDayDetailsView = true
               }
           }
@@ -59,8 +60,10 @@ struct CalendarView: View {
       .sheet(isPresented: $sharedData.showDayDetailsView) {
         DailyScheduleView(sharedData: sharedData)
       }
+         */
     }
 //      .frame(width: 400, height: 400, alignment: .top)
+
   }
 }
 
