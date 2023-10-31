@@ -11,6 +11,15 @@ import SwiftUI
 class Schedule: Identifiable {
 
   var schedule: ScheduleData = ScheduleData()
+  
+  public var uuid: String? {
+    set(value) {
+      schedule.uuid = value
+    }
+    get {
+      schedule.uuid
+    }
+  }
 
   public var createDate: Date? {
     set(value){
@@ -67,7 +76,12 @@ class Schedule: Identifiable {
     }
   }
   */
-  init(startTime: Date? = nil, duration: Double? = nil, information: String? = nil, alarm: Date? = nil) {
+  init(uuid: String? = nil, startTime: Date? = nil, duration: Double? = nil, information: String? = nil, alarm: Date? = nil) {
+    if uuid == nil  {
+      self.uuid = UUID().uuidString
+    } else {
+      self.uuid = uuid
+    }
     self.createDate = Date()
     self.startTime = startTime
     self.duration = duration

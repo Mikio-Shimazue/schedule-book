@@ -58,6 +58,11 @@ class ScheduleRepository  {
   /// スケジュール削除
   /// - Parameter id: 削除対象のスケジュールID
   public func removeSchedule(data: Schedule) {
+    for schedule in scheduleDataList {
+      if let date = schedule.alarm, let uuid = schedule.uuid, date == data.alarm {
+        ScheduleNotification().deleteNotification(uuid, date)
+      }
+    }
     scheduleDataList.removeAll(where: {$0.createDate == data.createDate})
     saveData()
   }
@@ -103,7 +108,7 @@ class ScheduleRepository  {
     }
     
     for schedule in scheduleList.schedules {
-      var scheduleData = Schedule()
+      var scheduleData = Schedule(uuid: schedule?.uuid)
       scheduleData.createDate = schedule?.createDate
       scheduleData.startTime = schedule?.startTime
       scheduleData.duration = schedule?.duration
@@ -114,11 +119,15 @@ class ScheduleRepository  {
   
   private func updateNotification() {
     for schedule in scheduleDataList {
-      ScheduleNotification().deleteNotification(date: Date())
+      if let uuid = schedule.uuid, let date = schedule.alarm {
+        ScheduleNotification().deleteNotification(uuid,date)
+      }
     }
     for schedule in scheduleDataList {
       if let alarmDate = schedule.alarm {
-        ScheduleNotification().setScheduleNotification(date: alarmDate)
+        if let uuid = schedule.uuid, let date = schedule.alarm {
+          ScheduleNotification().setScheduleNotification(uuid,date)
+        }
       }
     }
   }

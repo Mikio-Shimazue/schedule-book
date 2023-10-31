@@ -11,7 +11,7 @@ import UserNotifications
 
 class ScheduleNotification {
  
-  func setScheduleNotification(date: Date) {
+  func setScheduleNotification(_ identifier: String, _ date: Date) {
     UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .sound]) { [unowned self] authorized, error in
       if let error = error {
         print("error: \(error)")
@@ -41,7 +41,9 @@ class ScheduleNotification {
         print("dateComponents: \(dateComponents)")
         
         let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: false)
-        let request = UNNotificationRequest(identifier: UUID().uuidString, content: notificationContent, trigger: trigger)
+        let request = UNNotificationRequest(identifier: identifier, content: notificationContent, trigger: trigger)
+        print("UNNotificationRequest Identifiers:\(identifier)")
+
         UNUserNotificationCenter.current().add(request) { error in
           if let error = error {
             print("error: \(error)")
@@ -54,16 +56,26 @@ class ScheduleNotification {
     }
   }
   
-  func deleteNotification(date: Date) {
-    // 登録通知を確認
-    UNUserNotificationCenter.current().getPendingNotificationRequests {
-      print("DELETE before :Pending requests : ", $0)
-    }
-    UNUserNotificationCenter.current().removePendingNotificationRequests(withIdentifiers: [UUID().uuidString])
+  func deleteNotification(_ identifier: String,_ date: Date) {
+    logoutNotifications()
+
+    print("DeleteNotification Identifiers:\(identifier)")
+    //  登録されている通知を削除
+    UNUserNotificationCenter.current().removePendingNotificationRequests(withIdentifiers: [identifier])
     
     // 登録通知を確認
-    UNUserNotificationCenter.current().getPendingNotificationRequests {
-      print("DELETE after :Pending requests : ", $0)
+    logoutNotifications()
+  }
+  
+  // 登録されている通知を確認(log出力)
+  func logoutNotifications() {
+    return
+    /*
+    UNUserNotificationCenter.current().getPendingNotificationRequests { notifications in
+      for notification in notifications {
+        print("DELETE before :Pending requests : ", notification)
+      }
     }
+     */
   }
 }

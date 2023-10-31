@@ -12,6 +12,8 @@ struct ScheduleListData: Codable {
 }
 
 struct ScheduleData: Codable {
+  var uuid: String?
+  /// 作成日時
   var createDate: Date?
   /// 開始日時
   var startTime: Date?
@@ -25,6 +27,7 @@ struct ScheduleData: Codable {
 //  var color: Color
 
   enum CodingKeys: String,CodingKey {
+    case uuid
     case createDate
     case startTime
     case duration
