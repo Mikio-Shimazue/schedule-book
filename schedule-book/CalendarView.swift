@@ -29,9 +29,7 @@ struct CalendarView: View {
   
   var body: some View {
     VStack {
-      if sharedData.showDayDetailsView {
-        DailyScheduleView(sharedData: sharedData)
-      } else {
+
         Text("SecondViewへ")
           .onTapGesture {
             let today = Date()
@@ -39,9 +37,11 @@ struct CalendarView: View {
                let day = Calendar.current.day(for: today) {
               sharedData.textDay = String("\(month)/\(day)")
               sharedData.showDayDetailsView = true
-            }
+              }
           }
-      }
+          .sheet(isPresented: $sharedData.showDayDetailsView) {
+            DailyScheduleView(sharedData: sharedData)
+          }
       /*
 
       //  yyyy/MM
