@@ -29,7 +29,19 @@ struct CalendarView: View {
   
   var body: some View {
     VStack {
-      Text("SecondViewへ")
+      if sharedData.showDayDetailsView {
+        DailyScheduleView(sharedData: sharedData)
+      } else {
+        Text("SecondViewへ")
+          .onTapGesture {
+            let today = Date()
+            if let month = Calendar.current.month(for: today),
+               let day = Calendar.current.day(for: today) {
+              sharedData.textDay = String("\(month)/\(day)")
+              sharedData.showDayDetailsView = true
+            }
+          }
+      }
       /*
 
       //  yyyy/MM
