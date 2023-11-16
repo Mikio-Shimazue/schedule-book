@@ -67,6 +67,11 @@ struct CalendarView: View {
           DailyScheduleView(showDayDetailsView: $showDayDetailsView,dateData: _selectDay,viewModel: _dayViewModel)
         }
       }
+//      .padding()  //  縦横均一
+//      .padding(.bottom, 100)  //  下だけ
+      .padding(EdgeInsets(top: 10, leading: 0, bottom: 30, trailing: 0))
+      .background(Color.rgb(red: 220, green: 230, blue: 255, alpha: 255))
+//      .background(Color.blue)
 //      .frame(width: 400, height: 400, alignment: .top)
   }
 
