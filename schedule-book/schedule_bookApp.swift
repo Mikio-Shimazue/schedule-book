@@ -11,9 +11,15 @@ import SwiftUI
 struct schedule_bookApp: App {
   @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
   var body: some Scene {
+    let bounds = UIScreen.main.bounds
+    let width = CGFloat(bounds.width)
+    let height = CGFloat(bounds.height)
     WindowGroup {
+      Text("\(width) / \(height)")
       //  ContentView()
       CalendarView()
+        .frame(width: width,height: height)
+        .background(Color.cyan)
     }
   }
 }
