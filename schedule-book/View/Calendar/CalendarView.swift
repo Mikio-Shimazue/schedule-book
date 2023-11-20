@@ -20,7 +20,7 @@ struct CalendarView: View {
   )
   let weekdays = Calendar.current.shortWeekdaySymbols
   let columns: [GridItem] = Array(repeating: .init(.fixed(40)), count: 7)
-  private let selectedColor = [Color.gray,Color.gray,Color.gray,Color.gray,Color.gray,Color.gray,Color.red]
+  private let selectedColor = [Color.red,Color.gray,Color.gray,Color.gray,Color.gray,Color.gray,Color.blue]
   private let backgroundColor = Color.white
   private let backgroundColorEmpty = Color.rgb(red: 235, green: 235, blue: 235)
   @State var counter: Int = 0
