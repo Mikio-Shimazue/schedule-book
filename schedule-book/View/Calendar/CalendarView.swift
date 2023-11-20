@@ -37,10 +37,25 @@ struct CalendarView: View {
 
   var body: some View {
       VStack {
-        //  yyyy/MM
-        Text(String(format: "%4d年%2d月", year, month))
-          .font(.system(size: 20))
-        
+        HStack {
+          Button(action:{
+            // 前月に切替
+          }){
+            Image(systemName: "arrow.backward.circle")
+          }
+          .padding(.leading)
+          Spacer()
+          //  yyyy/MM
+          Text(String(format: "%4d年%2d月", year, month))
+            .font(.system(size: 20))
+          Spacer()
+          Button(action:{
+            // 次月に切替
+          }){
+            Image(systemName: "arrow.right.circle")
+          }
+          .padding(.trailing)
+        }
         //  曜日
         HStack {
           ForEach(weekdays, id: \.self) { weekday in
