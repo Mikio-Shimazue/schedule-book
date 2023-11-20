@@ -20,8 +20,9 @@ struct CalendarView: View {
   )
   let weekdays = Calendar.current.shortWeekdaySymbols
   let columns: [GridItem] = Array(repeating: .init(.fixed(40)), count: 7)
-  @State private var selectedColor = Color.gray
-  @State private var backgroundColor = Color.white
+  private let selectedColor = Color.gray
+  private let backgroundColor = Color.white
+  private let backgroundColorEmpty = Color.rgb(red: 235, green: 235, blue: 235)
   @State var counter: Int = 0
   @State private var showDayDetailsView = false
   @ObservedObject var selectDay = ViewDateData()
@@ -59,7 +60,7 @@ struct CalendarView: View {
                   dayViewModel.setDay(date: date)
                 }
             } else {
-              CalendarCellItem(color: selectedColor,backgroundColor: backgroundColor).frame(width: 40,height: 80)
+              CalendarCellItem(color: selectedColor,backgroundColor: backgroundColorEmpty).frame(width: 40,height: 80)
             }
           }
         }
