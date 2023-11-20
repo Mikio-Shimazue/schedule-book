@@ -20,7 +20,7 @@ struct CalendarView: View {
   )
   let weekdays = Calendar.current.shortWeekdaySymbols
   let columns: [GridItem] = Array(repeating: .init(.fixed(40)), count: 7)
-  private let selectedColor = Color.gray
+  private let selectedColor = [Color.gray,Color.gray,Color.gray,Color.gray,Color.gray,Color.gray,Color.red]
   private let backgroundColor = Color.white
   private let backgroundColorEmpty = Color.rgb(red: 235, green: 235, blue: 235)
   @State var counter: Int = 0
@@ -51,7 +51,8 @@ struct CalendarView: View {
         LazyVGrid(columns: columns, spacing: 5) {
           ForEach(calendarDates) { calendarDates in
             if let date = calendarDates.date, let day = Calendar.current.day(for: date) {
-              CalendarCellItem(day: date, symbol:String(day),color: selectedColor,backgroundColor: backgroundColor)
+              let week = Calendar.current.component(.weekday,from: date)
+              CalendarCellItem(day: date, symbol:String(day),color: selectedColor[week-1],backgroundColor: backgroundColor)
                 .frame(width: 40,height: 80)
                 .onTapGesture {
                   print(date)
@@ -60,7 +61,7 @@ struct CalendarView: View {
                   dayViewModel.setDay(date: date)
                 }
             } else {
-              CalendarCellItem(color: selectedColor,backgroundColor: backgroundColorEmpty).frame(width: 40,height: 80)
+              CalendarCellItem(color: selectedColor[0],backgroundColor: backgroundColorEmpty).frame(width: 40,height: 80)
             }
           }
         }

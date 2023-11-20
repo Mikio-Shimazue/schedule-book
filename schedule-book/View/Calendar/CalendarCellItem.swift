@@ -45,7 +45,7 @@ struct CalendarCellItem: View {
                 .frame(height:15, alignment: .top)
                 .multilineTextAlignment(.center)
                 .font(.caption)
-              
+                .foregroundColor(color)
               ForEach(dayViewModel.schedules) { schedule in
                 if let title = schedule.information {
                   Text(title.get3PointLeaderString(getCount: 6))
