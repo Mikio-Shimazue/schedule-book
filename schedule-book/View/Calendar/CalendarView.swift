@@ -13,8 +13,8 @@ struct DateInfo: Identifiable {
 }
 
 struct CalendarView: View {
-  let year = Calendar.current.year(for: Date()) ?? 2023
-  let month = Calendar.current.month(for: Date()
+  @State var year = Calendar.current.year(for: Date()) ?? 2023
+  @State var month = Calendar.current.month(for: Date()
   ) ?? 1
   @State var calendarDates = createCalendarDates(Date())
   let weekdays = Calendar.current.shortWeekdaySymbols
@@ -38,7 +38,16 @@ struct CalendarView: View {
     VStack {
       HStack {
         Button(action: {
-          // 前月に切替
+          month = month - 1
+          if 1 > month {
+            year = year - 1
+            month = 12
+          }
+          let calendar = Calendar(identifier: .gregorian)
+          if let date = calendar.date(from: DateComponents(year: year, month: month, day: 1)) {
+            // 前月に切替
+            calendarDates = createCalendarDates(date)
+          }
         }) {
           Image(systemName: "arrow.backward.circle")
         }
@@ -50,6 +59,16 @@ struct CalendarView: View {
         Spacer()
         Button(action: {
           // 次月に切替
+          month = month + 1
+          if 12 < month {
+            year = year + 1
+            month = 1
+          }
+          let calendar = Calendar(identifier: .gregorian)
+          if let date = calendar.date(from: DateComponents(year: year, month: month, day: 1)) {
+            // 前月に切替
+            calendarDates = createCalendarDates(date)
+          }
         }) {
           Image(systemName: "arrow.right.circle")
         }
