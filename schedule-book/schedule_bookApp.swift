@@ -15,11 +15,16 @@ struct schedule_bookApp: App {
     let width = CGFloat(bounds.width)
     let height = CGFloat(bounds.height)
     WindowGroup {
-      Text("\(width) / \(height)")
-      //  ContentView()
-      CalendarView()
-        .frame(width: width,height: height)
-        .background(Color.cyan)
+      ZStack{
+        Image("22395020")
+          .resizable()
+          .aspectRatio(contentMode: .fill)
+          .edgesIgnoringSafeArea(.all)
+        
+//          ContentView()
+        CalendarView()
+          .background(Color.cyan)
+      }
     }
   }
 }
