@@ -24,6 +24,7 @@ struct schedule_bookApp: App {
 //          ContentView()
         CalendarView()
           .background(Color.cyan)
+          .frame(width: width)
       }
     }
   }
