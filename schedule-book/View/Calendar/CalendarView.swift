@@ -18,7 +18,7 @@ struct CalendarView: View {
   ) ?? 1
   @State var calendarDates = createCalendarDates(Date())
   let weekdays = Calendar.current.shortWeekdaySymbols
-  let columns: [GridItem] = Array(repeating: .init(.fixed(40)), count: 7)
+  let columns: [GridItem] = Array(repeating: .init(.fixed(42)), count: 7)
   private let selectedColor = [Color.red, Color.gray, Color.gray, Color.gray, Color.gray, Color.gray, Color.blue]
   private let backgroundColor = Color.white
   private let backgroundColorEmpty = Color.rgb(red: 235, green: 235, blue: 235)
@@ -148,8 +148,15 @@ func createCalendarDates(_ date: Date) -> [DateInfo] {
   }
   
   let firstWeekEmptyDays = firstDateWeekday - 1
-  let lastWeekEmptyDays = 7 - lastDateWeekday
-  
+  var lastWeekEmptyDays = 7 - lastDateWeekday
+
+  let calendar = Calendar(identifier: .gregorian)
+  let dayCount = calendar.component(.day, from: lastDate)
+  if 42 > (firstWeekEmptyDays + dayCount + lastWeekEmptyDays) {
+    lastWeekEmptyDays = 42 - (firstWeekEmptyDays + dayCount)
+  }
+
+
   for _ in 0..<firstWeekEmptyDays {
     days.insert(DateInfo(date: nil), at: 0)
   }
