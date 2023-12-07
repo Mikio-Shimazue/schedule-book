@@ -10,6 +10,15 @@ import SwiftUI
 struct OmikujiView: View {
   @Binding var isPresented: Bool
   @State var isOmikuji: Bool = false
+  let omikujiResults: [String] = ["omikuji_daikichi",
+    "omikuji_kichi",
+    "omikuji_chuukichi",
+    "omikuji_syoukichi",
+    "omikuji_suekichi",
+    "omikuji_kyou",
+    "omikuji_daikyou",
+  ]
+  @State var omikujiNo: Int = 0
   var body: some View {
     VStack {
       if isOmikuji == false {
@@ -18,12 +27,13 @@ struct OmikujiView: View {
           .frame(width: 200, height: 168) //  800×672
           .rotationEffect(.degrees(0))
       } else {
-        Image("omikuji_daikichi")
+        Image(omikujiResults[omikujiNo])
           .resizable()
           .frame(width: 200, height: 200)
           .rotationEffect(.degrees(30))
       }
       Button(action: { withAnimation {
+        self.omikujiNo = Int.random(in: 0...omikujiResults.count)
         self.isOmikuji = true
         }
       }, label: {
