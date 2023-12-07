@@ -21,9 +21,9 @@ struct schedule_bookApp: App {
           .aspectRatio(contentMode: .fill)
           .edgesIgnoringSafeArea(.all)
         
-//          ContentView()
-        CalendarView()
-          .background(Color.cyan)
+        ContentView()
+//        CalendarView()
+          .background(Color.white.opacity(0))
           .frame(width: width)
       }
     }
