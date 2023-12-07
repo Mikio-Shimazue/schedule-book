@@ -15,7 +15,7 @@ struct OmikujiView: View {
       if isOmikuji == false {
         Image("omikuji-torii")
           .resizable()
-          .frame(width: 200, height: 200)
+          .frame(width: 200, height: 168) //  800×672
           .rotationEffect(.degrees(0))
       } else {
         Image("omikuji_daikichi")
