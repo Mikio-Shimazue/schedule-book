@@ -11,6 +11,8 @@
 		8B1B4E7229F3626700C2BDF5 /* ExtensionColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B1B4E7129F3626700C2BDF5 /* ExtensionColor.swift */; };
 		8B2A2F8029E6C89400D92C52 /* ScheduleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B2A2F7F29E6C89400D92C52 /* ScheduleView.swift */; };
 		8B3598C52ADFE6C50088F6D8 /* ScheduleData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B3598C42ADFE6C50088F6D8 /* ScheduleData.swift */; };
+		8B37397A2B232032003EAD3F /* LastStartupDateRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B3739792B232032003EAD3F /* LastStartupDateRepository.swift */; };
+		8B37397C2B23285D003EAD3F /* LastStartupDateViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B37397B2B23285D003EAD3F /* LastStartupDateViewModel.swift */; };
 		8B4FD24C299B8E2D00ABBB41 /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B4FD24B299B8E2D00ABBB41 /* CalendarView.swift */; };
 		8B4FD24F299B8F8C00ABBB41 /* ExtensionCalendar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B4FD24E299B8F8C00ABBB41 /* ExtensionCalendar.swift */; };
 		8B59B7A929F69A0F008CBE02 /* ScheduleEditingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B59B7A829F69A0F008CBE02 /* ScheduleEditingView.swift */; };
@@ -39,6 +41,8 @@
 		8B1B4E7129F3626700C2BDF5 /* ExtensionColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionColor.swift; sourceTree = "<group>"; };
 		8B2A2F7F29E6C89400D92C52 /* ScheduleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleView.swift; sourceTree = "<group>"; };
 		8B3598C42ADFE6C50088F6D8 /* ScheduleData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleData.swift; sourceTree = "<group>"; };
+		8B3739792B232032003EAD3F /* LastStartupDateRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LastStartupDateRepository.swift; sourceTree = "<group>"; };
+		8B37397B2B23285D003EAD3F /* LastStartupDateViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LastStartupDateViewModel.swift; sourceTree = "<group>"; };
 		8B4FD24B299B8E2D00ABBB41 /* CalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarView.swift; sourceTree = "<group>"; };
 		8B4FD24E299B8F8C00ABBB41 /* ExtensionCalendar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionCalendar.swift; sourceTree = "<group>"; };
 		8B59B7A829F69A0F008CBE02 /* ScheduleEditingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleEditingView.swift; sourceTree = "<group>"; };
@@ -93,6 +97,7 @@
 				8B734B8929F28A4800FD9C93 /* ScheduleRepository.swift */,
 				8B3598C42ADFE6C50088F6D8 /* ScheduleData.swift */,
 				8BE222CC2AE12C2800BE8994 /* ScheduleNotification.swift */,
+				8B3739792B232032003EAD3F /* LastStartupDateRepository.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -122,6 +127,7 @@
 			children = (
 				8B734B8E29F29DB000FD9C93 /* CalendarViewModel.swift */,
 				8B850C6E29F3A4CD00557B3A /* DayDetailViewModel.swift */,
+				8B37397B2B23285D003EAD3F /* LastStartupDateViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -281,11 +287,13 @@
 				8BCF14E42B1DE04A00A4477A /* ContentView.swift in Sources */,
 				8BEF6995299A5C3C00901C05 /* schedule_bookApp.swift in Sources */,
 				8B734B8F29F29DB000FD9C93 /* CalendarViewModel.swift in Sources */,
+				8B37397C2B23285D003EAD3F /* LastStartupDateViewModel.swift in Sources */,
 				8BFDC6272AE27A0B00339E70 /* AppDelegate.swift in Sources */,
 				8B0EBEDE29F00268001EC038 /* Schedule.swift in Sources */,
 				8B734B8A29F28A4800FD9C93 /* ScheduleRepository.swift in Sources */,
 				8BD34F4C29E419EE00C80B93 /* DailyScheduleView.swift in Sources */,
 				8BCF14E22B1DDE8200A4477A /* CloseButton.swift in Sources */,
+				8B37397A2B232032003EAD3F /* LastStartupDateRepository.swift in Sources */,
 				8B4FD24F299B8F8C00ABBB41 /* ExtensionCalendar.swift in Sources */,
 				8B4FD24C299B8E2D00ABBB41 /* CalendarView.swift in Sources */,
 			);

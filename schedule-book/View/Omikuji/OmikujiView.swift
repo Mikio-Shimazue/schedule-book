@@ -33,7 +33,7 @@ struct OmikujiView: View {
           .rotationEffect(.degrees(30))
       }
       Button(action: { withAnimation {
-        self.omikujiNo = Int.random(in: 0...omikujiResults.count)
+        self.omikujiNo = Int.random(in: 0..<omikujiResults.count)
         self.isOmikuji = true
         }
       }, label: {

@@ -10,6 +10,8 @@ import SwiftUI
 @main
 struct schedule_bookApp: App {
   @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
+  
+
   var body: some Scene {
     let bounds = UIScreen.main.bounds
     let width = CGFloat(bounds.width)
@@ -22,9 +24,6 @@ struct schedule_bookApp: App {
           .edgesIgnoringSafeArea(.all)
         
         ContentView()
-//        CalendarView()
-          .background(Color.white.opacity(0))
-          .frame(width: width)
       }
     }
   }
