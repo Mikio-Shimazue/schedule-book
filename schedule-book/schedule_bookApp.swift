@@ -24,6 +24,7 @@ struct schedule_bookApp: App {
           .edgesIgnoringSafeArea(.all)
         
         ContentView()
+          .frame(width: width)
       }
     }
   }
