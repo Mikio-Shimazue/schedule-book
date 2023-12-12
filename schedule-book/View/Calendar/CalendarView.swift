@@ -18,7 +18,7 @@ struct CalendarView: View {
   ) ?? 1
   @State var calendarDates = createCalendarDates(Date())
   let weekdays = Calendar.current.shortWeekdaySymbols
-  let columns: [GridItem] = Array(repeating: .init(.fixed(42)), count: 7)
+  let columns: [GridItem] = Array(repeating: GridItem(.flexible(maximum: 80)), count: 7)
   private let selectedColor = [Color.red, Color.gray, Color.gray, Color.gray, Color.gray, Color.gray, Color.blue]
   private let backgroundColor = Color.white
   private let backgroundColorEmpty = Color.rgb(red: 235, green: 235, blue: 235)
@@ -86,7 +86,7 @@ struct CalendarView: View {
           if let date = calendarDates.date, let day = Calendar.current.day(for: date) {
             let week = Calendar.current.component(.weekday, from: date)
             CalendarCellItem(day: date, symbol: String(day), color: selectedColor[week - 1], backgroundColor: backgroundColor)
-              .frame(width: 40, height: 80)
+//              .frame(width: 40, height: 80)
               .onTapGesture {
                 print(date)
                 selectDay.date = date
@@ -94,7 +94,8 @@ struct CalendarView: View {
                 dayViewModel.setDay(date: date)
               }
           } else {
-            CalendarCellItem(color: selectedColor[0], backgroundColor: backgroundColorEmpty).frame(width: 40, height: 80)
+            CalendarCellItem(color: selectedColor[0], backgroundColor: backgroundColorEmpty)
+//              .frame(width: 40, height: 80)
           }
         }
       }
@@ -103,8 +104,8 @@ struct CalendarView: View {
       }
     }
 //      .padding()  //  縦横均一
-//      .padding(.bottom, 100)  //  下だけ
-    .padding(EdgeInsets(top: 10, leading: 0, bottom: 30, trailing: 0))
+      .padding(.bottom, 100)  //  下だけ
+//    .padding(EdgeInsets(top: 10, leading: 0, bottom: 30, trailing: 0))
     .background(Color.rgb(red: 220, green: 230, blue: 255, alpha: 255))
 //      .background(Color.blue)
 //      .frame(width: 400, height: 400, alignment: .top)
