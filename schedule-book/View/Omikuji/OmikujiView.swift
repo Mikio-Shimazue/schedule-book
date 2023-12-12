@@ -41,7 +41,6 @@ struct OmikujiView: View {
           .font(.headline)
           .foregroundColor(!isOmikuji ? .white : .gray)
           .padding()
-          .frame(maxWidth: .infinity)
           .background(!isOmikuji ? .pink : .gray)
           .cornerRadius(12)
       })
