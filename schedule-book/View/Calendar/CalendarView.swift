@@ -18,7 +18,7 @@ struct CalendarView: View {
   ) ?? 1
   @State var calendarDates = createCalendarDates(Date())
   let weekdays = Calendar.current.shortWeekdaySymbols
-  let columns: [GridItem] = Array(repeating: GridItem(.flexible(maximum: 80)), count: 7)
+  let columns: [GridItem] = Array(repeating: GridItem(.flexible(minimum:50, maximum: 100), spacing: 0, alignment: .center), count: 7)
   private let selectedColor = [Color.red, Color.gray, Color.gray, Color.gray, Color.gray, Color.gray, Color.blue]
   private let backgroundColor = Color.white
   private let backgroundColorEmpty = Color.rgb(red: 235, green: 235, blue: 235)
@@ -76,8 +76,10 @@ struct CalendarView: View {
       }
       //  曜日
       HStack {
-        ForEach(weekdays, id: \.self) { weekday in
-          Text(weekday).frame(width: 40, height: 40, alignment: .center)
+        LazyVGrid(columns: columns, spacing: 5) {
+          ForEach(weekdays, id: \.self) { weekday in
+            Text(weekday).frame(width: 40, height: 40, alignment: .center)
+          }
         }
       }
         
