@@ -10,10 +10,12 @@ import SwiftUI
 struct ContentView: View {
   @State private var shouldPresentPopUpDialog = !LastStartupDateViewModel().isSameAsPreviousDate
   var body: some View {
-    CalendarView()
-    if shouldPresentPopUpDialog {
-      PopUpView(isPresented: $shouldPresentPopUpDialog) {
-        OmikujiView(isPresented: $shouldPresentPopUpDialog)
+    ZStack{
+      CalendarView()
+      if shouldPresentPopUpDialog {
+        PopUpView(isPresented: $shouldPresentPopUpDialog) {
+          OmikujiView(isPresented: $shouldPresentPopUpDialog)
+        }
       }
     }
   }
